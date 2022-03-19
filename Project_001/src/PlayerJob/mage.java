@@ -1,6 +1,6 @@
 package PlayerJob;
 
-public class warrior {
+public class mage {
 	
 	protected String name;
 	protected String playerClass;
@@ -74,17 +74,17 @@ public class warrior {
 	protected void setIntellect(int intellect) {
 		this.intellect = intellect;
 	}
-
-	public warrior() {
-		playerClass = "Warrior";
+	
+	public mage() {
+		playerClass = "Mage";
 		
 		hp = strength + 50;
 		mp = intellect * 2;
 		defense = strength + 50;
 		
-		strength = 80;
+		strength = 20;
 		agility = 40;
-		intellect = 20;
+		intellect = 70;
 	}
-	
+
 }
