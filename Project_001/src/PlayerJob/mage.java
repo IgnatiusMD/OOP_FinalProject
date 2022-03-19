@@ -1,6 +1,6 @@
 package PlayerJob;
 
-public class mage {
+public class Mage {
 	
 	protected String name;
 	protected String playerClass;
@@ -11,80 +11,81 @@ public class mage {
 	protected int agility;
 	protected int intellect;
 	
-	protected String getName() {
+	public String getName() {
 		return name;
 	}
 
-	protected void setName(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	protected String getPlayerClass() {
+	public String getPlayerClass() {
 		return playerClass;
 	}
 
-	protected void setPlayerClass(String playerClass) {
+	public void setPlayerClass(String playerClass) {
 		this.playerClass = playerClass;
 	}
 
-	protected int getHp() {
+	public int getHp() {
 		return hp;
 	}
 
-	protected void setHp(int hp) {
+	public void setHp(int hp) {
 		this.hp = hp;
 	}
 
-	protected int getMp() {
+	public int getMp() {
 		return mp;
 	}
 
-	protected void setMp(int mp) {
+	public void setMp(int mp) {
 		this.mp = mp;
 	}
 
-	protected int getDefense() {
+	public int getDefense() {
 		return defense;
 	}
 
-	protected void setDefense(int defense) {
+	public void setDefense(int defense) {
 		this.defense = defense;
 	}
 
-	protected int getStrength() {
+	public int getStrength() {
 		return strength;
 	}
 
-	protected void setStrength(int strength) {
+	public void setStrength(int strength) {
 		this.strength = strength;
 	}
 
-	protected int getAgility() {
+	public int getAgility() {
 		return agility;
 	}
 
-	protected void setAgility(int agility) {
+	public void setAgility(int agility) {
 		this.agility = agility;
 	}
 
-	protected int getIntellect() {
+	public int getIntellect() {
 		return intellect;
 	}
 
-	protected void setIntellect(int intellect) {
+	public void setIntellect(int intellect) {
 		this.intellect = intellect;
 	}
 	
-	public mage() {
+	public Mage() {
+		
 		playerClass = "Mage";
 		
-		hp = strength + 50;
+		hp = (strength * 3) + agility; 
 		mp = intellect * 2;
-		defense = strength + 50;
+		defense = (strength * 2) + 30;
 		
-		strength = 20;
-		agility = 40;
-		intellect = 70;
+		strength = 50;
+		agility = 70;
+		intellect = 30;
 	}
 
 }
