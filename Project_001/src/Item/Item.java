@@ -1,4 +1,4 @@
-package game;
+package Item;
 
 public class Item {
 	protected String id = "ITM";

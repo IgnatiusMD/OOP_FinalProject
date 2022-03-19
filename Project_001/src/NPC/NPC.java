@@ -1,8 +1,8 @@
-package game;
+package NPC;
 
-public class Player {
+public class NPC {
 	protected String name;
-	protected String playerClass;
+	protected String id = "NPC";
 	protected int hp;
 	protected int mp;
 	protected int defense;
@@ -10,7 +10,7 @@ public class Player {
 	protected int agility;
 	protected int intellect;
 	
-	public Player() {
+	public NPC() {
 		// TODO Auto-generated constructor stub
 	}
 
