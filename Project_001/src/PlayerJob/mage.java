@@ -1,6 +1,6 @@
 package PlayerJob;
 
-public class Mage {
+public class mage {
 	
 	protected String name;
 	protected String playerClass;
@@ -75,7 +75,7 @@ public class Mage {
 		this.intellect = intellect;
 	}
 	
-	public Mage() {
+	public mage() {
 		
 		playerClass = "Mage";
 		

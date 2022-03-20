@@ -1,6 +1,6 @@
 package PlayerJob;
 
-public class Assassin {
+public class assassin {
 	
 	protected String name;
 	protected String playerClass;
@@ -75,7 +75,7 @@ public class Assassin {
 		this.intellect = intellect;
 	}
 	
-	public Assassin() {
+	public assassin() {
 		playerClass = "Assassin";
 		
 		hp = (strength * 3) + agility; 

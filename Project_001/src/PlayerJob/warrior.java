@@ -1,6 +1,6 @@
 package PlayerJob;
 
-public class Warrior {
+public class warrior {
 	
 	protected String name;
 	protected String playerClass;
@@ -75,7 +75,7 @@ public class Warrior {
 		this.intellect = intellect;
 	}
 	
-	public Warrior() {
+	public warrior() {
 
 		playerClass = "Warrior";
 		
