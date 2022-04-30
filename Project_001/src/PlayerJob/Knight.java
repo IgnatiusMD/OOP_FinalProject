@@ -4,68 +4,13 @@ public class Knight extends Player{
 	
 	public Knight() {	
 		strength = 70;
-		agility = 50;
+		agility = 30;
 		intellect = 20;
 		
-		hp = (strength * 3) + agility; 
+		hp = 1450; 
 		mp = intellect * 2;
-		defense = (strength * 2) + 30;
-	}
-	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getHp() {
-		return hp;
-	}
-
-	public void setHp(int hp) {
-		this.hp = hp;
-	}
-
-	public int getMp() {
-		return mp;
-	}
-
-	public void setMp(int mp) {
-		this.mp = mp;
-	}
-
-	public int getDefense() {
-		return defense;
-	}
-
-	public void setDefense(int defense) {
-		this.defense = defense;
-	}
-
-	public int getStrength() {
-		return strength;
-	}
-
-	public void setStrength(int strength) {
-		this.strength = strength;
-	}
-
-	public int getAgility() {
-		return agility;
-	}
-
-	public void setAgility(int agility) {
-		this.agility = agility;
-	}
-
-	public int getIntellect() {
-		return intellect;
-	}
-
-	public void setIntellect(int intellect) {
-		this.intellect = intellect;
+		attack = Double.valueOf(strength * 2.5).intValue();
+		defense = 300;
 	}
 
 }
