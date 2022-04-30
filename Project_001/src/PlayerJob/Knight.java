@@ -1,15 +1,16 @@
 package PlayerJob;
 
-public class warrior {
+public class Knight extends Player{
 	
-	protected String name;
-	protected String playerClass;
-	protected int hp;
-	protected int mp;
-	protected int defense;
-	protected int strength;
-	protected int agility;
-	protected int intellect;
+	public Knight() {	
+		strength = 70;
+		agility = 50;
+		intellect = 20;
+		
+		hp = (strength * 3) + agility; 
+		mp = intellect * 2;
+		defense = (strength * 2) + 30;
+	}
 	
 	public String getName() {
 		return name;
@@ -17,14 +18,6 @@ public class warrior {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getPlayerClass() {
-		return playerClass;
-	}
-
-	public void setPlayerClass(String playerClass) {
-		this.playerClass = playerClass;
 	}
 
 	public int getHp() {
@@ -73,19 +66,6 @@ public class warrior {
 
 	public void setIntellect(int intellect) {
 		this.intellect = intellect;
-	}
-	
-	public warrior() {
-
-		playerClass = "Warrior";
-		
-		hp = (strength * 3) + agility; 
-		mp = intellect * 2;
-		defense = (strength * 2) + 30;
-		
-		strength = 70;
-		agility = 50;
-		intellect = 20;
 	}
 
 }
