@@ -9,8 +9,8 @@ public class Knight extends Player{
 		
 		hp = 1450; 
 		mp = intellect * 2;
-		attack = Double.valueOf(strength * 2.5).intValue();
-		defense = 300;
+		attack = strength * 4;
+		defense = 250 + strength;
 	}
 
 }

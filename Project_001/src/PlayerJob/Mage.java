@@ -9,8 +9,8 @@ public class Mage extends Player{
 		
 		hp = 1000; 
 		mp = intellect * 3;
-		attack = intellect;
-		defense = 120;
+		attack = intellect * 5;
+		defense = 120 + strength;
 	}
 	
 }

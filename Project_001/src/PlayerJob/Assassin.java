@@ -9,8 +9,8 @@ public class Assassin  extends Player{
 		
 		hp = 1200; 
 		mp = intellect * 2;
-		attack = Double.valueOf(agility * 3.5).intValue();
-		defense = 200;
+		attack = agility * 3;
+		defense = 200 + strength;
 	}
 	
 }
