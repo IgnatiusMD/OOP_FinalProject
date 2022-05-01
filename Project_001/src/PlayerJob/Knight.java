@@ -7,9 +7,9 @@ public class Knight extends Player{
 		agility = 30;
 		intellect = 20;
 		
-		hp = 1850; 
+		hp = 1450; 
 		mp = intellect * 2;
-		attack = strength * 4;
+		attack = Double.valueOf(strength * 3.5).intValue();
 		defense = 200 + strength;
 	}
 	
@@ -18,6 +18,6 @@ public class Knight extends Player{
 	}
 	
 	public void defend() {
-		System.out.println("Defense: " + (defense+120));
+		System.out.println("Defense: " + (defense+190));
 	}
 }

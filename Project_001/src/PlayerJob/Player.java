@@ -12,60 +12,102 @@ public abstract class Player {
 	
 	public abstract void attack();
 	public abstract void defend();
-	
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
-
+	/**
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public int getHp() {
+	/**
+	 * @return the hp
+	 */
+	public Integer getHp() {
 		return hp;
 	}
-
-	public void setHp(int hp) {
+	/**
+	 * @param hp the hp to set
+	 */
+	public void setHp(Integer hp) {
 		this.hp = hp;
 	}
-
-	public int getMp() {
+	/**
+	 * @return the mp
+	 */
+	public Integer getMp() {
 		return mp;
 	}
-
-	public void setMp(int mp) {
+	/**
+	 * @param mp the mp to set
+	 */
+	public void setMp(Integer mp) {
 		this.mp = mp;
 	}
-
-	public int getDefense() {
+	/**
+	 * @return the attack
+	 */
+	public Integer getAttack() {
+		return attack;
+	}
+	/**
+	 * @param attack the attack to set
+	 */
+	public void setAttack(Integer attack) {
+		this.attack = attack;
+	}
+	/**
+	 * @return the defense
+	 */
+	public Integer getDefense() {
 		return defense;
 	}
-
-	public void setDefense(int defense) {
+	/**
+	 * @param defense the defense to set
+	 */
+	public void setDefense(Integer defense) {
 		this.defense = defense;
 	}
-
-	public int getStrength() {
+	/**
+	 * @return the strength
+	 */
+	public Integer getStrength() {
 		return strength;
 	}
-
-	public void setStrength(int strength) {
+	/**
+	 * @param strength the strength to set
+	 */
+	public void setStrength(Integer strength) {
 		this.strength = strength;
 	}
-
-	public int getAgility() {
+	/**
+	 * @return the agility
+	 */
+	public Integer getAgility() {
 		return agility;
 	}
-
-	public void setAgility(int agility) {
+	/**
+	 * @param agility the agility to set
+	 */
+	public void setAgility(Integer agility) {
 		this.agility = agility;
 	}
-
-	public int getIntellect() {
+	/**
+	 * @return the intellect
+	 */
+	public Integer getIntellect() {
 		return intellect;
 	}
-
-	public void setIntellect(int intellect) {
+	/**
+	 * @param intellect the intellect to set
+	 */
+	public void setIntellect(Integer intellect) {
 		this.intellect = intellect;
 	}
+	
+	
 }

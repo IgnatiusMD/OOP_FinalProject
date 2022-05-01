@@ -8,7 +8,7 @@ public class Assassin  extends Player{
 		agility = 70;
 		intellect = 30;
 		
-		hp = 1600; 
+		hp = 1200; 
 		mp = intellect * 2;
 		attack = agility * 3;
 		defense = 150 + strength;
@@ -24,6 +24,6 @@ public class Assassin  extends Player{
 	}
 	
 	public void defend() {
-		System.out.println("Defense: "+ (defense+70));
+		System.out.println("Defense: "+ (defense+150));
 	}
 }

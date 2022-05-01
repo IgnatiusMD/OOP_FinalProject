@@ -7,7 +7,7 @@ public class Mage extends Player{
 		agility = 20;
 		intellect = 70;
 		
-		hp = 1400; 
+		hp = 1000; 
 		mp = intellect * 3;
 		attack = intellect;
 		defense = 120 + strength;
@@ -25,13 +25,13 @@ public class Mage extends Player{
 	}
 	
 	public void defend() {
-		if(mp >= 70) {
-			System.out.println("Magi Armor: " + defense + 180);
-			mp -= 70;
+		if(mp >= 50) {
+			System.out.println("Magi Armor: " + defense + 250);
+			mp -= 50;
 			System.out.println("MP Left: " + mp);
 		}
 		else {
-			System.out.println("Defense: " + defense);
+			System.out.println("Defense: " + (defense+100));
 		}
 	}
 }
