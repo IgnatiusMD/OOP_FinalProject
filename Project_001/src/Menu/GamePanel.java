@@ -2,6 +2,8 @@ package Menu;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JPanel;
+import PlayerJob.*;
+import NPC.*;
 
 public class GamePanel extends JPanel implements Runnable{
 	
@@ -36,7 +38,6 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	@Override
 	public void run() {
-		
 		while(gameThread != null) {
 			System.out.println("Hello World!");
 		}
