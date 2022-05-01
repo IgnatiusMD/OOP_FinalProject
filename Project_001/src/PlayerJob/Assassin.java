@@ -6,21 +6,25 @@ public class Assassin  extends Player{
 	public Assassin() {	
 		strength = 30;
 		agility = 70;
-		intellect = 30;
+		intellect = 20;
 		
 		hp = 1200; 
 		mp = intellect * 2;
 		attack = agility * 3;
-		defense = 150 + strength;
+		defense = 90 + strength;
 	}
 	
 	public void attack() {
-		if(Math.random() >= (1 - critChance)) {
+		if(criticalHit()) {
 			System.out.println("Critical HIT: " + attack * 2);
 		}
 		else {
 			System.out.println("Attack: " + attack);
 		}
+	}
+	
+	public boolean criticalHit() {
+		return (Math.random() >= (1 - critChance)) ? true : false;
 	}
 	
 	public void defend() {
