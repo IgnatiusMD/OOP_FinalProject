@@ -9,12 +9,7 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 		new Main();
-=======
->>>>>>> Stashed changes
 		
 		JFrame window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,10 +26,6 @@ public class Main {
 		window.setVisible(true);
 		
 		gamePanel.startGameThread();
-<<<<<<< Updated upstream
-=======
->>>>>>> ce592fdaffb56931ab99190efc70f2a6b66e694e
->>>>>>> Stashed changes
 	}
 
 }
