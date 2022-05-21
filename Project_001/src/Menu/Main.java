@@ -1,7 +1,5 @@
 package Menu;
 
-import javax.swing.JFrame;
-
 public class Main {
 
 	public Main() {

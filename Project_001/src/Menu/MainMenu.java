@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -21,6 +22,10 @@ public class MainMenu extends JFrame implements ActionListener{
 	private JButton buttonPlay = new JButton("Play");
 	private JButton buttonCredits = new JButton("Credits");
 	private JButton buttonExit = new JButton("Exit");
+	private BufferedImage backgroundImage;
+	private JLabel labelBackgroundImage;
+	private BufferedImage logo;
+	private JLabel labelLogo;
 	
 	public MainMenu() {
 		mainMenuFrame();
@@ -28,27 +33,43 @@ public class MainMenu extends JFrame implements ActionListener{
 
 	private void mainMenuFrame() {
 		// Creating Windows
-		setSize(1020, 1020);
 		setTitle("Last Tantasy");
+		setSize(1020, 1020);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 		setResizable(false);
-
+		
+		createBackground();
 		logoSection();
 		buttonSection();
-
+		
 		setLocation(500, 5);
 		setVisible(true);
 	}
-
+	
+	private void createBackground() {
+		
+		
+		try {
+			backgroundImage = ImageIO.read(new File("./src/Assets/MainMenuBackground.png"));
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		labelBackgroundImage = new JLabel(new ImageIcon(backgroundImage));
+		labelBackgroundImage.setSize(1020, 1020);
+		add(labelBackgroundImage);
+	}
+	
 	private void logoSection() {
 		// Creating Logo Section
 
 		// Read logo
 		try {
-			BufferedImage logo = ImageIO.read(new File("./src/Assets/Logo.png"));
-			JLabel labelLogo = new JLabel(new ImageIcon(logo));
+				logo = ImageIO.read(new File("./src/Assets/Logo.png"));
+				labelLogo = new JLabel(new ImageIcon(logo));
 			
 			//Add label to logo section
 			add(labelLogo, BorderLayout.NORTH);
