@@ -27,9 +27,9 @@ public class MainMenu extends JFrame implements ActionListener{
 	}
 
 	private void mainMenuFrame() {
-		
-		setTitle("Home");
+		// Creating Windows
 		setSize(1020, 1020);
+		setTitle("Last Tantasy");
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
@@ -43,17 +43,26 @@ public class MainMenu extends JFrame implements ActionListener{
 	}
 
 	private void logoSection() {
-		
+		// Creating Logo Section
+
+		// Read logo
 		try {
 			BufferedImage logo = ImageIO.read(new File("./src/Assets/Logo.png"));
 			JLabel labelLogo = new JLabel(new ImageIcon(logo));
+			
+			//Add label to logo section
 			add(labelLogo, BorderLayout.NORTH);
+			set
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
 	
 	private void buttonSection() {
+		/*
+		Creating Button section which have Button play, button credit, and button exit
+		*/
+
 		JPanel buttonElementContainer = new JPanel();
 		buttonElementContainer.setLayout(new GridLayout(3, 1));
 		buttonElementContainer.add(buttonPlay);
