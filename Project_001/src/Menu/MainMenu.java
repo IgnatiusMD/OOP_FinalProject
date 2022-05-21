@@ -52,7 +52,6 @@ public class MainMenu extends JFrame implements ActionListener{
 			
 			//Add label to logo section
 			add(labelLogo, BorderLayout.NORTH);
-			set
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
