@@ -1,7 +1,7 @@
 package PlayerJob;
 
-public class Mage extends Player{
-	
+public class Mage extends Player {
+
 	public Mage() {
 		strength = 20;
 		agility = 20;
@@ -34,4 +34,5 @@ public class Mage extends Player{
 			System.out.println("Defense: " + (defense+100));
 		}
 	}
+
 }

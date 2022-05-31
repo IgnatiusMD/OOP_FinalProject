@@ -1,6 +1,7 @@
 package PlayerJob;
 
-public class Assassin  extends Player{
+public class Assassin extends Player{
+
 	private Double critChance = 0.3;
 	
 	public Assassin() {	
@@ -30,4 +31,5 @@ public class Assassin  extends Player{
 	public void defend() {
 		System.out.println("Defense: "+ (defense+150));
 	}
+
 }
