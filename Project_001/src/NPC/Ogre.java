@@ -27,7 +27,4 @@ public class Ogre extends NPC{
 		}
 	}
 	
-	public void printTest() {
-		System.out.println("Hello World");
-	}
 }
