@@ -26,4 +26,8 @@ public class Ogre extends NPC{
 			this.attack += 100;
 		}
 	}
+	
+	public void printTest() {
+		System.out.println("Hello World");
+	}
 }
