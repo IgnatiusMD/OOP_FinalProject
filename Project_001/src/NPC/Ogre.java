@@ -2,7 +2,7 @@ package NPC;
 
 public class Ogre extends NPC{
 	private Double enragePercent = 0.3;
-	
+	private Integer test;
 	public Ogre() {
 		name = "Forest Ogre";
 		hp = 2300;
