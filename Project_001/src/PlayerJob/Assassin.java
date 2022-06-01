@@ -15,6 +15,16 @@ public class Assassin extends Player{
 		defense = 90 + strength;
 	}
 	
+	public void levelup() {
+		if(exp >= 200) {
+			agility += 30;
+			strength += 15;
+			intellect += 5;
+			
+			exp -= 200;
+		}
+	}
+	
 	public void attack() {
 		if(criticalHit()) {
 			System.out.println("Critical HIT: " + attack * 2);

@@ -13,6 +13,16 @@ public class Mage extends Player {
 		defense = 90 + strength;
 	}
 	
+	public void levelup() {
+		if(exp >= 200) {
+			intellect += 40 ;
+			agility += 5;
+			strength += 5;
+			
+			exp -= 200;
+		}
+	}
+	
 	public void attack() {
 		if(mp >= 10) {
 			System.out.println("Fireball: " + attack * 4);

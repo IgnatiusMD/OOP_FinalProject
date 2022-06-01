@@ -13,6 +13,16 @@ public class Knight extends Player{
 		defense = 120 + strength;
 	}
 	
+	public void levelup() {
+		if(exp >= 200) {
+			strength += 30;
+			agility += 10;
+			intellect += 10;
+			
+			exp -= 200;
+		}
+	}
+	
 	public void attack() {
 		System.out.println("Attack: " + attack);
 	}

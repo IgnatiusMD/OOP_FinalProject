@@ -9,12 +9,15 @@ public abstract class Player {
 	protected Integer strength;
 	protected Integer agility;
 	protected Integer intellect;
+	protected Integer exp;
 	
 	public abstract void attack();
 	public abstract void defend();
 	/**
 	 * @return the name
 	 */
+	public abstract void levelup();
+	
 	public String getName() {
 		return name;
 	}
