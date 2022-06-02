@@ -10,11 +10,11 @@ public class Goblin extends NPC{
 		defense = 100;
 	}
 	
-	public void attack() {
-		System.out.println("Attack: " + attack);
+	public Integer attack() {
+		return attack;
 	}
 	
-	public void defend() {
-		System.out.println("Defense: "+ (defense+70));
+	public Integer defend() {
+		return (defense+70);
 	}
 }

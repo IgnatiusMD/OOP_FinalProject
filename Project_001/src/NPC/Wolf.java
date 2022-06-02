@@ -11,12 +11,12 @@ public class Wolf extends NPC{
 		defense = 100;
 	}
 	
-	public void attack() {
+	public Integer attack() {
 		if(criticalHit()) {
-			System.out.println("Critical HIT: " + attack * 1.5);
+			return Double.valueOf(attack * 1.5).intValue();
 		}
 		else {
-			System.out.println("Attack: " + attack);
+			return attack;
 		}
 	}
 	
@@ -24,7 +24,7 @@ public class Wolf extends NPC{
 		return (Math.random() >= (1 - critChance)) ? true : false;
 	}
 	
-	public void defend() {
-		System.out.println("Defense: "+ (defense+50));
+	public Integer defend() {
+		return (defense+50);
 	}
 }

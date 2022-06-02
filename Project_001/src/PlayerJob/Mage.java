@@ -1,7 +1,7 @@
 package PlayerJob;
 
-public class Mage extends Player{
-	
+public class Mage extends Player {
+
 	public Mage() {
 		strength = 20;
 		agility = 20;
@@ -13,25 +13,34 @@ public class Mage extends Player{
 		defense = 90 + strength;
 	}
 	
-	public void attack() {
-		if(mp >= 10) {
-			System.out.println("Fireball: " + attack * 4);
-			mp -= 10;
-			System.out.println("MP Left: " + mp);
-		}
-		else {
-			System.out.println("Attack: " + attack);
+	public void levelup() {
+		if(exp >= 200) {
+			intellect += 40 ;
+			agility += 5;
+			strength += 5;
+			
+			exp -= 200;
 		}
 	}
 	
-	public void defend() {
-		if(mp >= 50) {
-			System.out.println("Magi Armor: " + defense + 250);
-			mp -= 50;
-			System.out.println("MP Left: " + mp);
+	public Integer attack() {
+		if(mp >= 10) {
+			mp -= 10;
+			return (attack * 4);
 		}
 		else {
-			System.out.println("Defense: " + (defense+100));
+			return attack;
 		}
 	}
+	
+	public Integer defend() {
+		if(mp >= 50) {
+			mp -= 50;
+			return (defense + 250);
+		}
+		else {
+			return (defense+100);
+		}
+	}
+
 }

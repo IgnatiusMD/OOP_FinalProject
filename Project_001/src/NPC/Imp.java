@@ -11,12 +11,12 @@ public class Imp extends NPC{
 		defense = 100;
 	}
 	
-	public void attack() {
+	public Integer attack() {
 		if(mp >= 50 && cast()) {
-			hellfire();
+			return hellfire();
 		}
 		else {
-			System.out.println("Attack: "+ attack);
+			return attack;
 		}
 		
 	}
@@ -25,13 +25,13 @@ public class Imp extends NPC{
 		return (Math.random() >= (1 - castChance)) ? true : false;
 	}
 	
-	public void hellfire() {
+	public Integer hellfire() {
 		System.out.println("Hellfire reigns from the sky");
-		System.out.println("Hellfire: " + 450);
 		mp -= 50;
+		return 450;
 	}
 	
-	public void defend() {
-		System.out.println("Defense: "+ (defense+80));
+	public Integer defend() {
+		return (defense+80);
 	}
 }
