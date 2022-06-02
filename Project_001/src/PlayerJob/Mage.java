@@ -23,25 +23,23 @@ public class Mage extends Player {
 		}
 	}
 	
-	public void attack() {
+	public Integer attack() {
 		if(mp >= 10) {
-			System.out.println("Fireball: " + attack * 4);
 			mp -= 10;
-			System.out.println("MP Left: " + mp);
+			return (attack * 4);
 		}
 		else {
-			System.out.println("Attack: " + attack);
+			return attack;
 		}
 	}
 	
-	public void defend() {
+	public Integer defend() {
 		if(mp >= 50) {
-			System.out.println("Magi Armor: " + defense + 250);
 			mp -= 50;
-			System.out.println("MP Left: " + mp);
+			return (defense + 250);
 		}
 		else {
-			System.out.println("Defense: " + (defense+100));
+			return (defense+100);
 		}
 	}
 

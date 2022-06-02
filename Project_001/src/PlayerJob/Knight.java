@@ -23,11 +23,11 @@ public class Knight extends Player{
 		}
 	}
 	
-	public void attack() {
-		System.out.println("Attack: " + attack);
+	public Integer attack() {
+		return attack;
 	}
 	
-	public void defend() {
-		System.out.println("Defense: " + (defense+190));
+	public Integer defend() {
+		return (defense+190);
 	}
 }

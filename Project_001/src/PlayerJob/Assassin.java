@@ -25,12 +25,12 @@ public class Assassin extends Player{
 		}
 	}
 	
-	public void attack() {
+	public Integer attack() {
 		if(criticalHit()) {
-			System.out.println("Critical HIT: " + attack * 2);
+			return (attack * 2);
 		}
 		else {
-			System.out.println("Attack: " + attack);
+			return attack;
 		}
 	}
 	
@@ -38,8 +38,8 @@ public class Assassin extends Player{
 		return (Math.random() >= (1 - critChance)) ? true : false;
 	}
 	
-	public void defend() {
-		System.out.println("Defense: "+ (defense+150));
+	public Integer defend() {
+		return (defense+150);
 	}
 
 }

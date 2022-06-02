@@ -12,13 +12,13 @@ public class Ogre extends NPC{
 	}
 
 	@Override
-	public void attack() {
-		System.out.println("Attack: " + attack);
+	public Integer attack() {
+		return attack;
 	}
 
 	@Override
-	public void defend() {
-		System.out.println("Defense: "+ (defense+100));
+	public Integer defend() {
+		return (defense+100);
 	}
 	
 	public void enrage() {

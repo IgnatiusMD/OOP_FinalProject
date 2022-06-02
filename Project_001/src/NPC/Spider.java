@@ -13,17 +13,17 @@ public class Spider extends NPC{
 		defense = 100;
 	}
 
-	public void attack() {
+	public Integer attack() {
 		if(!isVenomous) {
 			applyVenom();
 		}
 		
 		if(isVenomous) {
 			System.out.println("Its venom gives an extra kick");
-			System.out.println("Attack: " + attack + venomDmg);
+			return (attack + venomDmg);
 		}
 		else {
-			System.out.println("Attack: " + attack);
+			return attack;
 		}
 	}
 	
@@ -34,7 +34,7 @@ public class Spider extends NPC{
 		}
 	}
 	
-	public void defend() {
-		System.out.println("Defense: "+ (defense+50));
+	public Integer defend() {
+		return (defense+50);
 	}
 }

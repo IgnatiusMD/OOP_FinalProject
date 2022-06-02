@@ -7,8 +7,8 @@ public abstract class NPC {
 	protected Integer attack;
 	protected Integer defense;
 	
-	public abstract void attack();
-	public abstract void defend();
+	public abstract Integer attack();
+	public abstract Integer defend();
 	
 	public String getName() {
 		return name;
