@@ -2,46 +2,90 @@ package Menu;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
 import javax.swing.JPanel;
 
-public class GamePanel extends JPanel implements Runnable {
+import PlayerJob.Assassin;
 
-	// Screen Settings
-	// size for characters, objects, etc
-
-	/* if tile as standard measurement is being used */
-	final private int objectTileSize = 34; // 16x16
-	final private int scale = 2;
-
-	final private int actualTileSize = objectTileSize * scale; // 48x48
-	final private int maxTileColCount = 16;
-	final private int maxTileRowCount = 12;
-	final private int screenWidth = actualTileSize * maxTileColCount; // 1088 pixels
-	final private int screenHeight = actualTileSize * maxTileRowCount;// 1088 pixels
-
-	/* Using Coordinates */
-	// final int screenWidth = 1080;
-	// final int screenHeight = 1080;
-
-	Thread gameThread = new Thread(this);
-
+public class GamePanel extends JPanel implements Runnable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	final int originalTileSize = 16; // 16*16 tile
+	final int scale = 3;
+	
+	public final int tileSize = originalTileSize * scale; // 48*48 tile
+	final int maxScreenCol = 16; // 768px
+	final int maxScreenRow = 12; // 576px
+	
+	final int screenWidth = tileSize * maxScreenCol;
+	final int screenHeight = tileSize * maxScreenRow;
+	
+	KeyHandler keyH = new KeyHandler();
+	Thread gameThread;
+	Assassin playerAssassin = new Assassin(this, keyH);
+	
+	// FPS
+	int FPS = 60;
+	
+	
 	public GamePanel() {
+		
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.BLACK);
 		this.setDoubleBuffered(true);
+		this.addKeyListener(keyH);
+		this.setFocusable(true);
 	}
-
+	
 	public void startGameThread() {
+		
+		gameThread = new Thread(this);
 		gameThread.start();
 	}
-
+	
 	@Override
 	public void run() {
-		while (gameThread != null) {
-			System.out.println("Hello World!");
+		
+		double drawInterval = 1000000000 / FPS;
+		double delta = 0;
+		long lastTime = System.nanoTime();
+		long currentTime;
+		
+		while(gameThread != null) {
+			
+			currentTime = System.nanoTime();
+			
+			delta += (currentTime - lastTime) / drawInterval;
+			
+			lastTime = currentTime;
+			
+			if(delta >= 1) {
+				update();
+				repaint();
+				delta--;
+			}
 		}
-
+		
 	}
-
-	// Game Loop
+	
+	public void update() {
+		
+		playerAssassin.update();
+		
+	}
+	
+	public void paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		
+		Graphics2D g2 = (Graphics2D)g;
+		
+		playerAssassin.draw(g2);
+		
+		g2.dispose();
+		
+	}
 }
