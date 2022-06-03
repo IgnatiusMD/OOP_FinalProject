@@ -1,9 +1,10 @@
 package tile;
 
+import java.awt.image.BufferedImage;
+
 public class Tile {
 
-	public Tile() {
-		// TODO Auto-generated constructor stub
-	}
+	public BufferedImage image;
+	public Boolean collision = false;
 
 }
