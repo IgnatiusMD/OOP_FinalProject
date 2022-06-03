@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 import PlayerJob.*;
 import NPC.NPC;
 
