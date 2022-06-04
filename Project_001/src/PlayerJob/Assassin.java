@@ -1,6 +1,7 @@
 package PlayerJob;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
@@ -11,8 +12,6 @@ import Menu.KeyHandler;
 public class Assassin extends Player{
 
 	private Double critChance = 0.3;
-	private Integer x;
-	private Integer y;
 	private Integer speed;
 	
 	private BufferedImage upBuffImage, downBuffImage, leftBuffImage, rightBuffImage, image;
@@ -21,14 +20,22 @@ public class Assassin extends Player{
 	GamePanel gp;
 	KeyHandler keyH;
 	
+	public int screenX;
+	public int screenY;
+	
 	public Assassin(GamePanel gp, KeyHandler keyH) {
 		super();
+		this.keyH = keyH;
+
 		this.gp = gp;
 		this.keyH = keyH;
+		
+		solidArea = new Rectangle(8, 16, 32, 32);
 		
 		setDefaultValues();
 		getPlayerImage();
 	}
+	
 	
 	private void setDefaultValues() {
 		strength = 30;
@@ -40,8 +47,8 @@ public class Assassin extends Player{
 		attack = agility * 3;
 		defense = 90 + strength;
 		
-		this.x = 100;
-		this.y = 100;
+		worldX = gp.tileSize * 3;
+		worldY = gp.tileSize * 4;
 		this.speed = 4;
 		
 		this.direction = "up";
@@ -53,22 +60,6 @@ public class Assassin extends Player{
 
 	public void setCritChance(Double critChance) {
 		this.critChance = critChance;
-	}
-
-	public Integer getX() {
-		return x;
-	}
-
-	public void setX(Integer x) {
-		this.x = x;
-	}
-
-	public Integer getY() {
-		return y;
-	}
-
-	public void setY(Integer y) {
-		this.y = y;
 	}
 
 	public Integer getSpeed() {
@@ -128,20 +119,23 @@ public class Assassin extends Player{
 	public void update() {
 		if(keyH.upPressed == true) {
 			this.direction = "up";
-			this.y -= this.speed;
+			worldY -= this.speed;
 		}
 		else if(keyH.downPressed == true) {
 			this.direction = "down";
-			this.y += this.speed;
+			worldY += this.speed;
 		}
 		else if(keyH.leftPressed == true) {
 			this.direction = "left";
-			this.x -= this.speed;
+			worldX -= this.speed;
 		}
 		else if(keyH.rightPressed == true) {
 			this.direction = "right";
-			this.x += this.speed;
+			worldX += this.speed;
 		}
+		
+		collisionOn = false;
+		gp.colChecker.checkTile(this);
 	}
 	
 	public void draw(Graphics2D g2) {
@@ -161,7 +155,7 @@ public class Assassin extends Player{
 			image = rightBuffImage;
 		}
 		
-		g2.drawImage(this.image, this.x, this.y, gp.tileSize, gp.tileSize, null);
+		g2.drawImage(this.image, worldX, worldY, gp.tileSize, gp.tileSize, null);
 	}
 	
 	public void getPlayerImage() {

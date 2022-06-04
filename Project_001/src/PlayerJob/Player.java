@@ -1,5 +1,7 @@
 package PlayerJob;
 
+import java.awt.Rectangle;
+
 public abstract class Player {
 	protected String name;
 	protected Integer hp;
@@ -10,6 +12,11 @@ public abstract class Player {
 	protected Integer agility;
 	protected Integer intellect;
 	protected Integer exp;
+	
+	public Rectangle solidArea;
+	public boolean collisionOn = false;
+	
+	public int worldX, worldY;
 	
 	public abstract Integer attack();
 	public abstract Integer defend();

@@ -8,6 +8,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import PlayerJob.Assassin;
+import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable{
 	
@@ -26,6 +27,8 @@ public class GamePanel extends JPanel implements Runnable{
 	KeyHandler keyH = new KeyHandler();
 	Thread gameThread;
 	Assassin playerAssassin = new Assassin(this, keyH);
+	TileManager tileM = new TileManager(this);
+	public CollisionChecker colChecker = new CollisionChecker(this);
 	
 	// FPS
 	int FPS = 60;
@@ -83,7 +86,9 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		Graphics2D g2 = (Graphics2D)g;
 		
+		tileM.draw(g2);
 		playerAssassin.draw(g2);
+		
 		
 		g2.dispose();
 		
