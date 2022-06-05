@@ -11,6 +11,8 @@ public abstract class Player {
 	protected Integer intellect;
 	protected Integer exp;
 	
+	
+
 	public abstract Integer attack();
 	public abstract Integer defend();
 	

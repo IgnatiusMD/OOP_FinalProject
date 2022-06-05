@@ -1,6 +1,7 @@
 package PlayerJob;
 
 import java.awt.Graphics2D;
+
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
@@ -21,10 +22,10 @@ public class Assassin extends Player{
 	GamePanel gp;
 	KeyHandler keyH;
 	
-	public Assassin(GamePanel gp, KeyHandler keyH) {
+	public Assassin(GamePanel gp) {
 		super();
 		this.gp = gp;
-		this.keyH = keyH;
+		this.keyH = gp.map1.getkeyH();
 		
 		setDefaultValues();
 		getPlayerImage();
@@ -162,6 +163,7 @@ public class Assassin extends Player{
 		}
 		
 		g2.drawImage(this.image, this.x, this.y, gp.tileSize, gp.tileSize, null);
+	
 	}
 	
 	public void getPlayerImage() {

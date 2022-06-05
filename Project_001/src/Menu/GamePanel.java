@@ -4,10 +4,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-
 import javax.swing.JPanel;
-
-import PlayerJob.Assassin;
+import controller.*;
+import PlayerJob.*;
 
 public class GamePanel extends JPanel implements Runnable{
 	
@@ -23,21 +22,25 @@ public class GamePanel extends JPanel implements Runnable{
 	final int screenWidth = tileSize * maxScreenCol;
 	final int screenHeight = tileSize * maxScreenRow;
 	
-	KeyHandler keyH = new KeyHandler();
 	Thread gameThread;
-	Assassin playerAssassin = new Assassin(this, keyH);
+	GameLogic gl;
+	
+	public Map1 map1;
+	Assassin playerAssassin;
 	
 	// FPS
 	int FPS = 60;
 	
-	
-	public GamePanel() {
-		
+	public GamePanel(Map1 map1) {
+		this.map1 = map1;
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.BLACK);
 		this.setDoubleBuffered(true);
-		this.addKeyListener(keyH);
+		this.addKeyListener(map1.getkeyH());
 		this.setFocusable(true);
+		
+		playerAssassin = new Assassin(this);
+		gl = new GameLogic(this.playerAssassin);
 	}
 	
 	public void startGameThread() {
@@ -65,8 +68,20 @@ public class GamePanel extends JPanel implements Runnable{
 			if(delta >= 1) {
 				update();
 				repaint();
+				if(gl.checkEncounter()) {
+					map1.disablePressedKeys();
+//					this.setFocusable(false);
+					map1.cardLayout.show(map1.panel, "combat");
+					this.setFocusable(true);
+					this.addKeyListener(map1.getkeyH());
+				}
+				else {
+					this.setFocusable(true);
+				}
 				delta--;
 			}
+			
+			
 		}
 		
 	}
@@ -88,4 +103,5 @@ public class GamePanel extends JPanel implements Runnable{
 		g2.dispose();
 		
 	}
+	
 }

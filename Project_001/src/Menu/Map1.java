@@ -1,9 +1,18 @@
 package Menu;
 
+import java.awt.CardLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class Map1{
+import controller.*;
 
+public class Map1 {
+	private KeyHandler keyH = new KeyHandler();
+	
+	public CardLayout cardLayout = new CardLayout();
+	public JPanel panel = new JPanel(cardLayout);
+	
 	public Map1() {
 		runMap();
 	}
@@ -14,8 +23,13 @@ public class Map1{
 		window.setResizable(false);
 		window.setTitle("Last Tantasy");
 		
-		GamePanel gamePanel = new GamePanel();
-		window.add(gamePanel);
+		GamePanel gamePanel = new GamePanel(this);
+		CombatPanel cp = new CombatPanel(this);
+		
+		panel.add(gamePanel, "game");
+		panel.add(cp, "combat");
+		
+		window.add(panel);
 		
 		window.pack();
 		
@@ -26,4 +40,14 @@ public class Map1{
 		
 	}
 	
+	public void disablePressedKeys() {
+		keyH.upPressed = false;
+		keyH.downPressed = false;
+		keyH.rightPressed = false;
+		keyH.leftPressed = false;
+	}
+	
+	public KeyHandler getkeyH() {
+		return this.keyH;
+	}
 }
