@@ -1,12 +1,14 @@
 package Menu;
 
 import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import controller.*;
 import PlayerJob.*;
+import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable{
 	
@@ -23,10 +25,16 @@ public class GamePanel extends JPanel implements Runnable{
 	final int screenHeight = tileSize * maxScreenRow;
 	
 	Thread gameThread;
-	GameLogic gl;
+
 	
+	private KeyHandler keyH = new KeyHandler();
 	public Map1 map1;
-	Assassin playerAssassin;
+
+	Assassin playerAssassin = new Assassin(this, keyH);
+	GameLogic gl = new GameLogic(this.playerAssassin);
+	
+	TileManager tileM = new TileManager(this);
+	public CollisionChecker colChecker = new CollisionChecker(this);
 	
 	// FPS
 	int FPS = 60;
@@ -36,11 +44,9 @@ public class GamePanel extends JPanel implements Runnable{
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.BLACK);
 		this.setDoubleBuffered(true);
-		this.addKeyListener(map1.getkeyH());
+		this.addKeyListener(keyH);
 		this.setFocusable(true);
 		
-		playerAssassin = new Assassin(this);
-		gl = new GameLogic(this.playerAssassin);
 	}
 	
 	public void startGameThread() {
@@ -97,7 +103,9 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		Graphics2D g2 = (Graphics2D)g;
 		
+		tileM.draw(g2);
 		playerAssassin.draw(g2);
+		
 		
 		g2.dispose();
 		

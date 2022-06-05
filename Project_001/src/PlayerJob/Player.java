@@ -1,5 +1,7 @@
 package PlayerJob;
 
+import java.awt.Rectangle;
+
 public abstract class Player {
 	protected String name;
 	protected Integer hp;
@@ -11,8 +13,11 @@ public abstract class Player {
 	protected Integer intellect;
 	protected Integer exp;
 	
+	public Rectangle solidArea;
+	public boolean collisionOn = false;
 	
-
+	public int worldX, worldY;
+	
 	public abstract Integer attack();
 	public abstract Integer defend();
 	
@@ -38,6 +43,30 @@ public abstract class Player {
 		return mp;
 	}
 	
+	/**
+	 * @return the worldX
+	 */
+	public int getWorldX() {
+		return worldX;
+	}
+	/**
+	 * @param worldX the worldX to set
+	 */
+	public void setWorldX(int worldX) {
+		this.worldX = worldX;
+	}
+	/**
+	 * @return the worldY
+	 */
+	public int getWorldY() {
+		return worldY;
+	}
+	/**
+	 * @param worldY the worldY to set
+	 */
+	public void setWorldY(int worldY) {
+		this.worldY = worldY;
+	}
 	public void setMp(Integer mp) {
 		this.mp = mp;
 	}

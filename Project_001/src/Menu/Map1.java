@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import controller.*;
 
 public class Map1 {
-	private KeyHandler keyH = new KeyHandler();
+	
 	
 	public CardLayout cardLayout = new CardLayout();
 	public JPanel panel = new JPanel(cardLayout);
@@ -40,14 +40,11 @@ public class Map1 {
 		
 	}
 	
-	public void disablePressedKeys() {
-		keyH.upPressed = false;
-		keyH.downPressed = false;
-		keyH.rightPressed = false;
-		keyH.leftPressed = false;
-	}
-	
-	public KeyHandler getkeyH() {
-		return this.keyH;
-	}
+//	public void disablePressedKeys() {
+//		keyH.upPressed = false;
+//		keyH.downPressed = false;
+//		keyH.rightPressed = false;
+//		keyH.leftPressed = false;
+//	}
+//	
 }

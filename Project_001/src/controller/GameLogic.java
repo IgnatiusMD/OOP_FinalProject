@@ -65,10 +65,10 @@ public class GameLogic {
 	
 	public boolean checkEncounter() {
 		for(int i = 0; i < getCoordinateListSize(); i++) {
-			if((plAssassin.getX() >= getCoordinate(i, 0) 
-					&& plAssassin.getX() <= getCoordinate(i, 1)) 
-					&& ( plAssassin.getY() >= getCoordinate(i, 2) 
-					&& plAssassin.getY() <= getCoordinate(i, 3))
+			if((plAssassin.getWorldX() >= getCoordinate(i, 0) 
+					&& plAssassin.getWorldX() <= getCoordinate(i, 1)) 
+					&& ( plAssassin.getWorldY() >= getCoordinate(i, 2) 
+					&& plAssassin.getWorldY() <= getCoordinate(i, 3))
 					&& getCoordinate(i, 4) == 0) {
 				plAssassin.setSpeed(0);
 				flagEnemyPosition(i);
