@@ -32,7 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
 
 	Assassin playerAssassin = new Assassin(this, keyH);
 	GameLogic gl = new GameLogic(this.playerAssassin);
-	
+
 	TileManager tileM = new TileManager(this);
 	public CollisionChecker colChecker = new CollisionChecker(this);
 	
