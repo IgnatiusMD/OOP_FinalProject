@@ -4,7 +4,6 @@ import Menu.Map1;
 import java.util.Arrays;
 import java.util.Vector;
 
-import Menu.GamePanel;
 import NPC.*;
 import PlayerJob.*;
 
@@ -71,6 +70,7 @@ public class GameLogic {
 					&& ( plAssassin.getY() >= getCoordinate(i, 2) 
 					&& plAssassin.getY() <= getCoordinate(i, 3))
 					&& getCoordinate(i, 4) == 0) {
+				plAssassin.setSpeed(0);
 				flagEnemyPosition(i);
 				return true;
 			}

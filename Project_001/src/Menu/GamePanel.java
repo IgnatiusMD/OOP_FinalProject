@@ -68,15 +68,14 @@ public class GamePanel extends JPanel implements Runnable{
 			if(delta >= 1) {
 				update();
 				repaint();
-				if(gl.checkEncounter()) {
-					map1.disablePressedKeys();
-//					this.setFocusable(false);
+				if(gl.checkEncounter()) { 
 					map1.cardLayout.show(map1.panel, "combat");
-					this.setFocusable(true);
-					this.addKeyListener(map1.getkeyH());
 				}
 				else {
 					this.setFocusable(true);
+					if(playerAssassin.getSpeed()==0) {
+						playerAssassin.setSpeed(0);
+					}
 				}
 				delta--;
 			}
