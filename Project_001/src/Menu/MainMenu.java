@@ -1,11 +1,16 @@
 package Menu;
 
+import javax.swing.JFrame;
+
 public class MainMenu {
 
 	public MainMenu() {
-		System.out.println("apapun tes");
+		JFrame windowMainMenu = new JFrame();
 	}
-
+	
+	
+	
+	
 	public static void main(String[] args) {
 		new MainMenu();
 	}
