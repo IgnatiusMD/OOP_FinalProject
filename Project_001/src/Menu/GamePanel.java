@@ -14,21 +14,31 @@ public class GamePanel extends JPanel implements Runnable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	// SCREEN SETTING
+	
 	final int originalTileSize = 16; // 16*16 tile
 	final int scale = 3;
 	
 	public final int tileSize = originalTileSize * scale; // 48*48 tile
-	final int maxScreenCol = 16; // 768px
-	final int maxScreenRow = 12; // 576px
+	public final int maxScreenCol = 16; // 768px
+	public final int maxScreenRow = 12; // 576px
 	
-	final int screenWidth = tileSize * maxScreenCol;
-	final int screenHeight = tileSize * maxScreenRow;
+	public final int screenWidth = tileSize * maxScreenCol;
+	public final int screenHeight = tileSize * maxScreenRow;
 	
+	// CALL NEEDED FEATURE
 	KeyHandler keyH = new KeyHandler();
 	Thread gameThread;
-	Assassin playerAssassin = new Assassin(this, keyH);
+	public Assassin playerAssassin = new Assassin(this, keyH);
 	TileManager tileM = new TileManager(this);
 	public CollisionChecker colChecker = new CollisionChecker(this);
+	
+	// WORLD SETTING
+	public final int maxWorldCol = 50;
+	public final int maxWorldRow = 50;
+	public final int worldWidth = tileSize * maxWorldCol;
+	public final int worldHeight = tileSize * maxWorldRow;
+	
 	
 	// FPS
 	int FPS = 60;
