@@ -37,9 +37,9 @@ public class GameLogic {
 		/*coord Array Content
 		[LowerBoundX, UpperBoundX, LowerBoundY, UpperBoundY]*/
 		
-		Integer[] coord1 = {200, 248, 200, 248, 0};
-		Integer[] coord2 = {300, 348, 300, 348, 0};
-		Integer[] coord3 = {550, 598, 550, 598, 0};
+		Integer[] coord1 = {1092, 1140, 1308, 1356, 0};
+		Integer[] coord2 = {996, 1044, 1008, 1056, 0};
+		Integer[] coord3 = {550, 598, 1528, 1576, 0};
 		Integer[] coord4 = {100, 148, 320, 368, 0};
 		enemyCoordinates.add(coord1);
 		enemyCoordinates.add(coord2);

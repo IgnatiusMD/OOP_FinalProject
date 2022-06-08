@@ -15,6 +15,8 @@ public abstract class Player {
 	
 	public Rectangle solidArea;
 	public boolean collisionOn = false;
+	public String direction;
+	public Integer speed;
 	
 	public int worldX, worldY;
 	
