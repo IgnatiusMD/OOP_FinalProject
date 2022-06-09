@@ -33,6 +33,7 @@ public class Combat {
 			}
 			
 		}
+		
 		if (enemy.getHp() <= 0) {
 			System.out.println("\nPlayer won\n");
 			gl.popEnemyFromList();
