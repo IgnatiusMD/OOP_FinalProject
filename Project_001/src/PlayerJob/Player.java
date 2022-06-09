@@ -11,7 +11,7 @@ public abstract class Player {
 	protected Integer strength;
 	protected Integer agility;
 	protected Integer intellect;
-	protected Integer exp;
+	protected Integer exp = 0;
 	
 	public Rectangle solidArea;
 	public boolean collisionOn = false;
@@ -22,7 +22,7 @@ public abstract class Player {
 	
 	public abstract Integer attack();
 	public abstract Integer defend();
-	
+	public abstract void updateStats();
 	public abstract void levelup();
 	
 	public String getName() {
@@ -113,5 +113,7 @@ public abstract class Player {
 		this.intellect = intellect;
 	}
 	
-	
+	public void gainEXP() {
+		this.exp += 160;
+	}
 }

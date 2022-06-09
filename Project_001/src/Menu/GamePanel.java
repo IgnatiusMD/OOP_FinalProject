@@ -34,6 +34,7 @@ public class GamePanel extends JPanel implements Runnable{
 	GameLogic gl = new GameLogic(this.playerAssassin);
 	TileManager tileM = new TileManager(this);
 	public CollisionChecker colChecker = new CollisionChecker(this);
+	Combat combat;
 	
 	// WORLD SETTING
 	public final int maxWorldCol = 50;
@@ -46,6 +47,7 @@ public class GamePanel extends JPanel implements Runnable{
 	int FPS = 60;
 	
 	public GamePanel(Map1 map1) {
+		combat = new Combat(gl, map1);
 		this.map1 = map1;
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.BLACK);
@@ -81,10 +83,11 @@ public class GamePanel extends JPanel implements Runnable{
 				update();
 				repaint();
 				if(gl.checkEncounter()) { 
-					map1.cardLayout.show(map1.panel, "combat");
+//					map1.cardLayout.show(map1.panel, "combat");
+					combat.startCombat(playerAssassin, gl.getEnemyFromList());
 				}
 				else {
-					System.out.println(playerAssassin.getWorldX() + ", " + playerAssassin.getWorldY());
+//					System.out.println(playerAssassin.getWorldX() + ", " + playerAssassin.getWorldY());
 				}
 				delta--;
 			}
@@ -112,6 +115,20 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		g2.dispose();
 		
+	}
+	
+	public void disableKeys() {
+		this.keyH.downPressed = false;
+		this.keyH.leftPressed = false;
+		this.keyH.rightPressed = false;
+		this.keyH.upPressed = false;
+	}
+	
+	public void enableKeys() {
+		this.keyH.downPressed = true;
+		this.keyH.leftPressed = true;
+		this.keyH.rightPressed = true;
+		this.keyH.upPressed = true;
 	}
 	
 }

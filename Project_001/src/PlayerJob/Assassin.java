@@ -106,12 +106,23 @@ public class Assassin extends Player{
 		return (defense+150);
 	}
 	
+	@Override 
+	public void updateStats(){
+		mp = intellect * 2;
+		attack = agility * 3;
+		defense = 90 + strength;
+	}
+	
 	@Override
 	public void levelup() {
 		if(exp >= 200) {
+			System.out.println("You've leveled up!!!");
+			hp += 200;
 			agility += 30;
 			strength += 15;
 			intellect += 5;
+			
+			updateStats();
 			
 			exp -= 200;
 		}
@@ -158,6 +169,7 @@ public class Assassin extends Player{
 			}
 		}
 		
+		levelup();
 	}
 	
 	public void draw(Graphics2D g2) {

@@ -1,16 +1,15 @@
 package controller;
-import java.util.ArrayList;
-import Menu.Map1;
-import java.util.Arrays;
+
 import java.util.Vector;
+
 
 import NPC.*;
 import PlayerJob.*;
 
 public class GameLogic {
 	
-	static Vector <NPC> enemiesList = new Vector<>();
-	static Ogre boss = new Ogre();
+	public static Vector <NPC> enemiesList = new Vector<>();
+	public static Ogre boss = new Ogre();
 	
 	private static Vector <Integer[]> enemyCoordinates = new Vector<>();
 	
@@ -35,23 +34,23 @@ public class GameLogic {
 	
 	public void addEncounterCoordinates() {
 		/*coord Array Content
-		[LowerBoundX, UpperBoundX, LowerBoundY, UpperBoundY]*/
+		[LowerBoundX, UpperBoundX, LowerBoundY, UpperBoundY, isVisited]*/
 		
 		Integer[] coord1 = {1092, 1140, 1308, 1356, 0};
 		Integer[] coord2 = {996, 1044, 1008, 1056, 0};
 		Integer[] coord3 = {550, 598, 1528, 1576, 0};
-		Integer[] coord4 = {100, 148, 320, 368, 0};
+		Integer[] coord4 = {1100, 1148, 420, 368, 0};
 		enemyCoordinates.add(coord1);
 		enemyCoordinates.add(coord2);
 		enemyCoordinates.add(coord3);
 		enemyCoordinates.add(coord4);
 	}
 	
-	public Integer getCoordinate(int tile, int boundary) {
+	public Integer getEnemyPosAndIndex(int tile, int boundary) {
 		return enemyCoordinates.get(tile)[boundary];
 	}
 	
-	public void removeCoordinate(int tile) {
+	public void removeEnemyPosAndType(int tile) {
 		enemyCoordinates.remove(tile);
 	}
 	
@@ -63,19 +62,31 @@ public class GameLogic {
 		return enemyCoordinates.size();
 	}
 	
+	public NPC getEnemyFromList(int index) {
+		return enemiesList.get(index);
+	}
+	
 	public boolean checkEncounter() {
 		for(int i = 0; i < getCoordinateListSize(); i++) {
-			if((plAssassin.getWorldX() >= getCoordinate(i, 0) 
-					&& plAssassin.getWorldX() <= getCoordinate(i, 1)) 
-					&& ( plAssassin.getWorldY() >= getCoordinate(i, 2) 
-					&& plAssassin.getWorldY() <= getCoordinate(i, 3))
-					&& getCoordinate(i, 4) == 0) {
-				plAssassin.setSpeed(0);
+			if((plAssassin.getWorldX() >= getEnemyPosAndIndex(i, 0) 
+					&& plAssassin.getWorldX() <= getEnemyPosAndIndex(i, 1)) 
+					&& ( plAssassin.getWorldY() >= getEnemyPosAndIndex(i, 2) 
+					&& plAssassin.getWorldY() <= getEnemyPosAndIndex(i, 3))
+					&& getEnemyPosAndIndex(i, 4) == 0) {
 				flagEnemyPosition(i);
+				
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	public NPC getEnemyFromList() {
+		return enemiesList.get(0);
+	}
+	
+	public void popEnemyFromList() {
+		enemiesList.remove(0);
 	}
 	
 	public void processCommand(String[] commands) {
