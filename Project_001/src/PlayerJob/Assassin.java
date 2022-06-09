@@ -12,16 +12,14 @@ import Menu.KeyHandler;
 public class Assassin extends Player{
 
 	private Double critChance = 0.3;
-	private Integer speed;
 	
 	private BufferedImage upBuffImage, downBuffImage, leftBuffImage, rightBuffImage, image;
-	private String direction;
 	
 	GamePanel gp;
 	KeyHandler keyH;
 	
-	public int screenX;
-	public int screenY;
+	public final int screenX;
+	public final int screenY;
 	
 	public Assassin(GamePanel gp, KeyHandler keyH) {
 		super();
@@ -30,7 +28,14 @@ public class Assassin extends Player{
 		this.gp = gp;
 		this.keyH = keyH;
 		
-		solidArea = new Rectangle(8, 16, 32, 32);
+		screenX = gp.screenWidth/2 - (gp.tileSize/2);
+		screenY = gp.screenHeight/2 - (gp.tileSize/2);
+		
+		solidArea = new Rectangle();
+		solidArea.x = 8;
+		solidArea.y = 16;
+		solidArea.width = 32;
+		solidArea.height = 32;
 		
 		setDefaultValues();
 		getPlayerImage();
@@ -47,8 +52,8 @@ public class Assassin extends Player{
 		attack = agility * 3;
 		defense = 90 + strength;
 		
-		worldX = gp.tileSize * 3;
-		worldY = gp.tileSize * 4;
+		worldX = gp.tileSize * 23;
+		worldY = gp.tileSize * 21;
 		this.speed = 4;
 		
 		this.direction = "up";
@@ -101,12 +106,23 @@ public class Assassin extends Player{
 		return (defense+150);
 	}
 	
+	@Override 
+	public void updateStats(){
+		mp = intellect * 2;
+		attack = agility * 3;
+		defense = 90 + strength;
+	}
+	
 	@Override
 	public void levelup() {
 		if(exp >= 200) {
+			System.out.println("You've leveled up!!!");
+			hp += 200;
 			agility += 30;
 			strength += 15;
 			intellect += 5;
+			
+			updateStats();
 			
 			exp -= 200;
 		}
@@ -117,25 +133,43 @@ public class Assassin extends Player{
 	}
 	
 	public void update() {
+		// CHECK TILE COLLISION
+		collisionOn = false;
+		gp.colChecker.checkTile(this);
+		
+		// EVENT COLLISION HANDLE
 		if(keyH.upPressed == true) {
 			this.direction = "up";
-			worldY -= this.speed;
+			
+			if(collisionOn == false) {
+				worldY -= this.speed;
+			}
+			
 		}
 		else if(keyH.downPressed == true) {
 			this.direction = "down";
-			worldY += this.speed;
+			
+			if(collisionOn == false) {
+				worldY += this.speed;
+			}
+			
 		}
 		else if(keyH.leftPressed == true) {
 			this.direction = "left";
-			worldX -= this.speed;
+			
+			if(collisionOn == false) {
+				worldX -= this.speed;
+			}
 		}
 		else if(keyH.rightPressed == true) {
 			this.direction = "right";
-			worldX += this.speed;
+			
+			if(collisionOn == false) {
+				worldX += this.speed;
+			}
 		}
 		
-		collisionOn = false;
-		gp.colChecker.checkTile(this);
+		levelup();
 	}
 	
 	public void draw(Graphics2D g2) {
@@ -155,7 +189,7 @@ public class Assassin extends Player{
 			image = rightBuffImage;
 		}
 		
-		g2.drawImage(this.image, worldX, worldY, gp.tileSize, gp.tileSize, null);
+		g2.drawImage(this.image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 	}
 	
 	public void getPlayerImage() {
@@ -165,9 +199,9 @@ public class Assassin extends Player{
 			downBuffImage = ImageIO.read(getClass().getResourceAsStream("/AssassinChar/AssassinDown.png"));
 			leftBuffImage = ImageIO.read(getClass().getResourceAsStream("/AssassinChar/AssassinLeft.png"));
 			rightBuffImage = ImageIO.read(getClass().getResourceAsStream("/AssassinChar/AssassinRight.png"));
-			
+			 
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("Image Charakter Assets not found");
 		}
 	}
 

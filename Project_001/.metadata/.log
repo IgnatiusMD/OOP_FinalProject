@@ -2007,7 +2007,9 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.e4.ui.workbench 2 0 2022-06-03 13:45:25.576
 !MESSAGE Removing PartDescriptorImpl with the "org.eclipse.oomph.p2.ui.RepositoryExplorer" id and the "Repository Explorer" label.It points to the non available "bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" class. Bundle might have been uninstalled
+
 !SESSION 2022-06-05 13:29:44.220 -----------------------------------------------
+
 eclipse.buildId=4.16.0.I20200604-0540
 java.version=1.8.0_291
 java.vendor=Oracle Corporation

@@ -13,6 +13,12 @@ public class Mage extends Player {
 		defense = 90 + strength;
 	}
 	
+	@Override
+	public void updateStats() {
+		
+	}
+	
+	@Override
 	public void levelup() {
 		if(exp >= 200) {
 			intellect += 40 ;
@@ -23,6 +29,7 @@ public class Mage extends Player {
 		}
 	}
 	
+	@Override
 	public Integer attack() {
 		if(mp >= 10) {
 			mp -= 10;
@@ -33,6 +40,7 @@ public class Mage extends Player {
 		}
 	}
 	
+	@Override
 	public Integer defend() {
 		if(mp >= 50) {
 			mp -= 50;
