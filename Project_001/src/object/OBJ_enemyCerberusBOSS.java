@@ -4,11 +4,6 @@ import javax.imageio.ImageIO;
 
 public class OBJ_enemyCerberusBOSS extends SuperObject{
 	
-	protected Integer hp;
-	protected Integer mp;
-	protected Integer attack;
-	protected Integer defense;
-	
 	
 	public OBJ_enemyCerberusBOSS(){
 		
