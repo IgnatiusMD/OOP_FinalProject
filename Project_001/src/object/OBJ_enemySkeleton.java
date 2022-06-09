@@ -9,7 +9,7 @@ public class OBJ_enemySkeleton extends SuperObject{
 		name = "Spider";
 		
 		try {
-			image = ImageIO.read(getClass().getResourceAsStream("/enemy/Dragon.png"));
+			image = ImageIO.read(getClass().getResourceAsStream("/enemy/Skeleton.png"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

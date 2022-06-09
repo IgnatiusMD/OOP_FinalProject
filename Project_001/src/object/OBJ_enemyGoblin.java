@@ -8,7 +8,7 @@ public class OBJ_enemyGoblin extends SuperObject{
 		name = "Goblin";
 		
 		try {
-			image = ImageIO.read(getClass().getResourceAsStream("/enemy/Dragon.png"));
+			image = ImageIO.read(getClass().getResourceAsStream("/enemy/Goblin.png"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

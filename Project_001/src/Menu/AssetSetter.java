@@ -42,8 +42,8 @@ public class AssetSetter {
 		gp.obj[5].worldY = 20 * gp.tileSize;
 		
 		gp.obj[6] = new OBJ_enemyGoblin();
-		gp.obj[6].worldX = 36 * gp.tileSize;
-		gp.obj[6].worldY = 20 * gp.tileSize;
+		gp.obj[6].worldX = 20 * gp.tileSize;
+		gp.obj[6].worldY = 37 * gp.tileSize;
 
 		gp.obj[7] = new OBJ_enemyImp();
 		gp.obj[7].worldX = 38 * gp.tileSize;

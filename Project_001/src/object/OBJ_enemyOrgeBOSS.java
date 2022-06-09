@@ -8,7 +8,7 @@ public class OBJ_enemyOrgeBOSS extends SuperObject{
 		name = "Orge Boss";
 		
 		try {
-			image = ImageIO.read(getClass().getResourceAsStream("/enemy/Dragon.png"));
+			image = ImageIO.read(getClass().getResourceAsStream("/enemy/Ogre.png"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
