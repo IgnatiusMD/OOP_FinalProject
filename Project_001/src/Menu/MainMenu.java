@@ -56,7 +56,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		// Header
 		header = new JPanel();
 		header.setPreferredSize(new Dimension(100, 200));
-//		header.setBackground(Color.decode("#CCF7FF"));
+		header.setBackground(Color.decode("#9CE15B"));
 		
 		BufferedImage myPicture = null;
 		try {
@@ -71,19 +71,25 @@ public class MainMenu extends JFrame implements ActionListener {
 		// Body
 		body = new JPanel();
 		buttons = new JPanel(new BorderLayout());
-//		body.setBackground(Color.decode("#CCF7FF"));
+		body.setBackground(Color.decode("#9CE15B"));
 		
 		playGame = new JButton("PLAY");
 		playGame.addActionListener(this);
 		playGame.setPreferredSize(new Dimension(600, 100));
+		playGame.setBackground(Color.decode("#000000"));
+		playGame.setForeground(Color.decode("#FFFFFF"));
 		
 		creditPage = new JButton("CREDITS");
 		creditPage.addActionListener(this);
 		creditPage.setPreferredSize(new Dimension(600, 100));
+		creditPage.setBackground(Color.decode("#000000"));
+		creditPage.setForeground(Color.decode("#FFFFFF"));
 		
 		exitGame = new JButton("EXIT");
 		exitGame.addActionListener(this);
 		exitGame.setPreferredSize(new Dimension(600, 100));
+		exitGame.setBackground(Color.decode("#000000"));
+		exitGame.setForeground(Color.decode("#FFFFFF"));
 		
 		buttons.add(playGame, BorderLayout.NORTH);
 		buttons.add(creditPage, BorderLayout.CENTER);

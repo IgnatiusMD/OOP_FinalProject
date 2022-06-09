@@ -28,21 +28,46 @@ public class CreditPage extends JFrame implements ActionListener {
 	
 	// Button
 	JButton backBtn;
+	
+	// Content
+	JLabel vl, greg, md, className, classCode;
 
 	public CreditPage() {
 		setFrame();
 		
-		header = new JPanel();
-		header.setPreferredSize(new Dimension(100, 50));
-		header.setBackground(Color.decode("#CCF7FF"));
-		
+		header = new JPanel(new GridLayout(5, 1));
+		header.setPreferredSize(new Dimension(100, 200));
+		header.setBackground(Color.decode("#9CE15B"));
 		
 		body = new JPanel();
-		body.setBackground(Color.decode("#CCF7FF"));
+		body.setBackground(Color.decode("#9CE15B"));
+		
+		vl = new JLabel("Vincentius Loanka Sinaga - 2440015846", JLabel.CENTER);
+		vl.setFont(new Font("Monaco", Font.BOLD, 20));
+		
+		md = new JLabel("Ignatius Michael Dinata - 2440010750", JLabel.CENTER);
+		md.setFont(new Font("Monaco", Font.BOLD, 20));
+		
+		greg = new JLabel("Gregory Hugo - 2401960095", JLabel.CENTER);
+		greg.setFont(new Font("Monaco", Font.BOLD, 20));
+		
+		className = new JLabel("Object Oriented Programming Lecture", JLabel.CENTER);
+		className.setFont(new Font("Monaco", Font.BOLD, 20));
+		
+		classCode = new JLabel("COMP6708001", JLabel.CENTER);
+		classCode.setFont(new Font("Monaco", Font.BOLD, 20));
 		
 		backBtn = new JButton("BACK");
 		backBtn.addActionListener(this);
 		backBtn.setPreferredSize(new Dimension(600, 100));
+		backBtn.setBackground(Color.decode("#000000"));
+		backBtn.setForeground(Color.decode("#FFFFFF"));
+		
+		header.add(className);
+		header.add(classCode);
+		header.add(greg);
+		header.add(vl);
+		header.add(md);
 		
 		body.add(backBtn);
 		
