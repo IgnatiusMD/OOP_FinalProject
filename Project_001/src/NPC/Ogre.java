@@ -18,7 +18,7 @@ public class Ogre extends NPC{
 
 	@Override
 	public Integer defend() {
-		return (defense+100);
+		return 100;
 	}
 	
 	public void enrage() {

@@ -21,9 +21,9 @@ public class Knight extends Player{
 	@Override
 	public void levelup() {
 		if(exp >= 200) {
-			strength += 30;
-			agility += 10;
-			intellect += 10;
+			strength += 25;
+			agility += 5;
+			intellect += 5;
 			
 			exp -= 200;
 		}
@@ -36,6 +36,6 @@ public class Knight extends Player{
 	
 	@Override
 	public Integer defend() {
-		return (defense+190);
+		return 190;
 	}
 }

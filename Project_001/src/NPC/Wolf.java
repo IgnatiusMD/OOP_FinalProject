@@ -25,6 +25,6 @@ public class Wolf extends NPC{
 	}
 	
 	public Integer defend() {
-		return (defense+50);
+		return 50;
 	}
 }

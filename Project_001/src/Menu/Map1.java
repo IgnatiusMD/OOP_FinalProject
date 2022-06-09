@@ -9,21 +9,20 @@ import controller.*;
 
 public class Map1 {
 	
-	
+	public JFrame window = new JFrame();
 	public CardLayout cardLayout = new CardLayout();
 	public JPanel panel = new JPanel(cardLayout);
+	
+	public GamePanel gamePanel = new GamePanel(this);
 	
 	public Map1() {
 		runMap();
 	}
 	
 	private void runMap() {
-		JFrame window = new JFrame();
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(false);
 		window.setTitle("Last Tantasy");
-		
-		GamePanel gamePanel = new GamePanel(this);
 		
 		window.add(gamePanel);
 		

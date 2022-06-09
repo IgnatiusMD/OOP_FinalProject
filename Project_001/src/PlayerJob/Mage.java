@@ -21,7 +21,7 @@ public class Mage extends Player {
 	@Override
 	public void levelup() {
 		if(exp >= 200) {
-			intellect += 40 ;
+			intellect += 30 ;
 			agility += 5;
 			strength += 5;
 			
@@ -44,10 +44,10 @@ public class Mage extends Player {
 	public Integer defend() {
 		if(mp >= 50) {
 			mp -= 50;
-			return (defense + 250);
+			return 250;
 		}
 		else {
-			return (defense+100);
+			return 100;
 		}
 	}
 

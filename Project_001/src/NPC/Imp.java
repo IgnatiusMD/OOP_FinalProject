@@ -32,6 +32,6 @@ public class Imp extends NPC{
 	}
 	
 	public Integer defend() {
-		return (defense+80);
+		return 80;
 	}
 }

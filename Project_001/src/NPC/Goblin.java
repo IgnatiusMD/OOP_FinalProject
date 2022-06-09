@@ -15,6 +15,6 @@ public class Goblin extends NPC{
 	}
 	
 	public Integer defend() {
-		return (defense+70);
+		return 70;
 	}
 }

@@ -1,7 +1,10 @@
 package controller;
 import PlayerJob.*;
 import NPC.NPC;
-import Menu.Map1;
+
+import javax.swing.SwingUtilities;
+
+import Menu.*;
 
 public class Combat {
 	
@@ -12,37 +15,72 @@ public class Combat {
 	public Combat(GameLogic gl, Map1 map1) {
 		this.gl = gl;
 		this.map1 = map1;
-		System.out.println("Combat has started!!!");
 	}
 	
 	public void startCombat(Player player, NPC enemy) {
+		System.out.println("===========================================");
+		System.out.println("You've encountered an enemy!");
+		
+		//Temporary health of player, so that it resets each encounter
 		Integer playerCombatHP = player.getHp();
 		
+		//Defense amount modifier when defend move is triggered
+		Integer playerCombatDefMod = 0;
+		Integer enemyCombatDefMod = 0;
+		
 		while(playerCombatHP > 0 && enemy.getHp() > 0) {
-			System.out.println("Player: "+ player.getHp());
+			System.out.println("Player: "+ playerCombatHP);
 			System.out.println("Enemy: " + enemy.getHp());
 			
-			//player attacks
+			//player chooses an action
 			if(willAttack()) {
-				enemy.setHp(enemy.getHp() - (player.attack() - enemy.getDefense()));
+				//player attacks
+				System.out.println("You attacked");
+				enemy.setHp(enemy.getHp() - (player.attack() - 
+						(enemy.getDefense() + enemyCombatDefMod)));
+				if(enemyCombatDefMod > 0) {
+					enemyCombatDefMod = 0;
+				}
+			}
+			else {
+				//player defends
+				System.out.println("You defended");
+				playerCombatDefMod = player.defend();
 			}
 			
-			//enemy attacks
-			if(willAttack()) {
-				playerCombatHP = playerCombatHP - (enemy.attack() - player.getDefense());
-			}
 			
+			//enemy chooses an action
+			if(enemy.getHp() > 0) {
+				if(willAttack()) {
+					//enemy attacks
+					System.out.println("The enemy attacked");
+					playerCombatHP = playerCombatHP - (enemy.attack() - 
+							(player.getDefense() + playerCombatDefMod));
+					if(playerCombatDefMod > 0) {
+						playerCombatDefMod = 0;
+					}
+				}
+				else {
+					//enemy defends
+					System.out.println("The enemy defended");
+					enemyCombatDefMod = enemy.defend();
+				}
+			}
+			System.out.println("\n");
 		}
-		
+		System.out.println("===========================================");
 		if (enemy.getHp() <= 0) {
-			System.out.println("\nPlayer won\n");
-			gl.popEnemyFromList();
+			System.out.println("You won the battle\n");
 			player.gainEXP();
 			map1.cardLayout.show(map1.panel, "game");
 			return;
 		}
 		else {
-			System.out.println("\nPlayer lost\n");
+			System.out.println("You died\n");
+			System.out.println("GAME OVER\n\n");
+			map1.window.dispose();
+//			new Main();
+			new Map1();
 			return;
 		}
 	}

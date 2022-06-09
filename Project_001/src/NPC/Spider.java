@@ -35,6 +35,6 @@ public class Spider extends NPC{
 	}
 	
 	public Integer defend() {
-		return (defense+50);
+		return 50;
 	}
 }

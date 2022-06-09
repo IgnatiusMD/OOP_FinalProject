@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import Menu.GamePanel;
 import Menu.KeyHandler;
+import Menu.Map1;
 
 public class Assassin extends Player{
 
@@ -96,6 +97,7 @@ public class Assassin extends Player{
 	@Override
 	public Integer attack() {
 		if(criticalHit()) {
+			System.out.println("CRIT!!");
 			return (attack * 2);
 		}
 		else {
@@ -105,7 +107,7 @@ public class Assassin extends Player{
 	
 	@Override
 	public Integer defend() {
-		return (defense+150);
+		return 150;
 	}
 	
 	@Override 
@@ -118,10 +120,10 @@ public class Assassin extends Player{
 	@Override
 	public void levelup() {
 		if(exp >= 200) {
-			System.out.println("You've leveled up!!!");
+			System.out.println("\nYou've leveled up!!!\n");
 			hp += 200;
-			agility += 30;
-			strength += 15;
+			agility += 20;
+			strength += 10;
 			intellect += 5;
 			
 			updateStats();
@@ -183,7 +185,6 @@ public class Assassin extends Player{
 		if(i != 99999) {
 			//EVENT HANDLING IF THE PLAYER COLLISION WITH OBJECT
 			gp.obj[i] = null;
-			
 		}
 		
 	}

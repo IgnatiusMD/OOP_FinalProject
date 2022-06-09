@@ -44,7 +44,6 @@ public class GamePanel extends JPanel implements Runnable{
 	public final int worldWidth = tileSize * maxWorldCol;
 	public final int worldHeight = tileSize * maxWorldRow;
 	
-	
 	// FPS
 	int FPS = 60;
 	
@@ -88,10 +87,15 @@ public class GamePanel extends JPanel implements Runnable{
 			if(delta >= 1) {
 				update();
 				repaint();
-				if(gl.checkEncounter()) { 
+				if(gl.checkEncounter() == 1) { 
 					combat.startCombat(playerAssassin, gl.getEnemyFromList());
+					gl.popEnemyFromList();
 				}
+//				else if(gl.checkEncounter() == 2) {
+//					combat.startCombat(playerAssassin, gl.boss);
+//				}
 				else {
+//					System.out.println(playerAssassin.getWorldX() +", "+playerAssassin.getWorldY());
 				}
 				delta--;
 			}
@@ -129,20 +133,6 @@ public class GamePanel extends JPanel implements Runnable{
 		playerAssassin.draw(g2);
 		g2.dispose();
 		
-	}
-	
-	public void disableKeys() {
-		this.keyH.downPressed = false;
-		this.keyH.leftPressed = false;
-		this.keyH.rightPressed = false;
-		this.keyH.upPressed = false;
-	}
-	
-	public void enableKeys() {
-		this.keyH.downPressed = true;
-		this.keyH.leftPressed = true;
-		this.keyH.rightPressed = true;
-		this.keyH.upPressed = true;
 	}
 	
 }
