@@ -5,11 +5,15 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Graphics;
 import java.awt.GridLayout;
+import java.awt.HeadlessException;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -47,22 +51,42 @@ public class MainMenu extends JFrame implements ActionListener {
 	public MainMenu() {
 		setFrame();
 		
+		// Background
+		try {
+			JFrame f = new JFrame() { 
+				  Image backgroundImage = ImageIO.read(new File("/Background/BackgroundImg.png"));
+				  public void paint(Graphics g ) { 
+				    super.paint(g);
+				    g.drawImage(backgroundImage, 0, 0, null);
+				  }
+				};
+		} catch (HeadlessException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		// Header
 		header = new JPanel();
-		header.setPreferredSize(new Dimension(100, 50));
-		header.setBackground(Color.decode("#CCF7FF"));
+		header.setPreferredSize(new Dimension(100, 200));
+//		header.setBackground(Color.decode("#CCF7FF"));
 		
-		titleLabel = new JLabel("FINAL TANTASY");
-		titleLabel.setForeground(Color.decode("#104A00"));
-		
+		BufferedImage myPicture = null;
+		try {
+			myPicture = ImageIO.read(getClass().getResource("/Logo/LastTantasy.png"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		titleLabel = new JLabel(new ImageIcon(myPicture));
 		header.add(titleLabel);
-		
-		// TINGGAL MASUKIN GAMBAR AYOLAHHHH :"
 		
 		// Body
 		body = new JPanel();
 		buttons = new JPanel(new BorderLayout());
-		body.setBackground(Color.decode("#CCF7FF"));
+//		body.setBackground(Color.decode("#CCF7FF"));
 		
 		playGame = new JButton("PLAY");
 		playGame.addActionListener(this);
@@ -97,7 +121,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		this.setTitle("Final Tantasy");
 		this.setLocationRelativeTo(null);
 		this.setFocusable(true);
-		this.setBackground(Color.decode("#CCF7FF"));
+//		this.setBackground(Color.decode("#CCF7FF"));
 	}
 
 	@Override
