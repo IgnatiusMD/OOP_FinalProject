@@ -3,7 +3,7 @@ package Menu;
 public class Main {
 
 	public Main() {
-		new Map1();
+		new MainMenu();
 	}
 
 	public static void main(String[] args) {
