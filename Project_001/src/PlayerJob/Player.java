@@ -14,6 +14,7 @@ public abstract class Player {
 	protected Integer exp;
 	
 	public Rectangle solidArea;
+	public int solidAreaDefaultX, solidAreaDefaultY;
 	public boolean collisionOn = false;
 	public String direction;
 	public Integer speed;
