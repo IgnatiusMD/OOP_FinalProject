@@ -52,22 +52,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		setFrame();
 		
 		// Background
-		try {
-			JFrame f = new JFrame() { 
-				  Image backgroundImage = ImageIO.read(new File("/Background/BackgroundImg.png"));
-				  public void paint(Graphics g ) { 
-				    super.paint(g);
-				    g.drawImage(backgroundImage, 0, 0, null);
-				  }
-				};
-		} catch (HeadlessException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
+        
 		// Header
 		header = new JPanel();
 		header.setPreferredSize(new Dimension(100, 200));
@@ -121,13 +106,12 @@ public class MainMenu extends JFrame implements ActionListener {
 		this.setTitle("Final Tantasy");
 		this.setLocationRelativeTo(null);
 		this.setFocusable(true);
-//		this.setBackground(Color.decode("#CCF7FF"));
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(playGame)) {
-//			play Game
+			new Map1();
 			setVisible(false);
 		} else if (e.getSource().equals(creditPage)) {
 			new CreditPage();
