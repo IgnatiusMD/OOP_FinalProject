@@ -24,27 +24,17 @@ public class Map1 {
 		window.setTitle("Last Tantasy");
 		
 		GamePanel gamePanel = new GamePanel(this);
-		CombatPanel cp = new CombatPanel(this);
 		
-		panel.add(gamePanel, "game");
-		panel.add(cp, "combat");
-		
-		window.add(panel);
+		window.add(gamePanel);
 		
 		window.pack();
 		
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 		
+		gamePanel.setUpGame();
+		
 		gamePanel.startGameThread();
 		
 	}
-	
-//	public void disablePressedKeys() {
-//		keyH.upPressed = false;
-//		keyH.downPressed = false;
-//		keyH.rightPressed = false;
-//		keyH.leftPressed = false;
-//	}
-//	
 }
