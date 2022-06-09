@@ -63,5 +63,95 @@ public class CollisionChecker {
 		}
 		
 	}
-
+	
+	public int checkObject(Player player, boolean assassin) {
+		
+		int index = 99999;
+		
+		for(int i = 0; i < gp.obj.length; i++) {
+			if(gp.obj[i] != null) {
+				// Get Player Solid area position
+				player.solidArea.x = player.worldX + player.solidArea.x;
+				player.solidArea.y = player.worldY + player.solidArea.y;
+				
+				// Get the object solid area position
+				gp.obj[i].solidArea.x = gp.obj[i].worldX + gp.obj[i].solidArea.x;
+				gp.obj[i].solidArea.y = gp.obj[i].worldY + gp.obj[i].solidArea.y;
+				
+				if(player.direction.equalsIgnoreCase("up")) {
+					player.solidArea.y -= player.speed;
+					
+					if(player.solidArea.intersects(gp.obj[i].solidArea)) {
+						
+						if(gp.obj[i].collision == true) {
+							player.collisionOn = true;
+						}
+						
+						if(assassin == true) {
+							index = i;
+						}
+						
+					}
+					
+				}
+				else if(player.direction.equalsIgnoreCase("down")) {
+					player.solidArea.y += player.speed;
+					
+					if(player.solidArea.intersects(gp.obj[i].solidArea)) {
+						
+						if(gp.obj[i].collision == true) {
+							player.collisionOn = true;
+						}
+						
+						if(assassin == true) {
+							index = i;
+						}
+						
+					}
+					
+				}
+				else if(player.direction.equalsIgnoreCase("left")) {
+					player.solidArea.x -= player.speed;
+					
+					if(player.solidArea.intersects(gp.obj[i].solidArea)) {
+						
+						if(gp.obj[i].collision == true) {
+							player.collisionOn = true;
+						}
+						
+						if(assassin == true) {
+							index = i;
+						}
+						
+					}
+				
+				}
+				else if(player.direction.equalsIgnoreCase("right")) {
+					player.solidArea.x += player.speed;
+				
+					if(player.solidArea.intersects(gp.obj[i].solidArea)) {
+						
+						if(gp.obj[i].collision == true) {
+							player.collisionOn = true;
+						}
+						
+						if(assassin == true) {
+							index = i;
+						}
+						
+					}
+				}
+				
+				player.solidArea.x = player.solidAreaDefaultX;
+				player.solidArea.y = player.solidAreaDefaultY;
+				gp.obj[i].solidArea.x = gp.obj[i].solidAreaDefaultX;
+				gp.obj[i].solidArea.y = gp.obj[i].solidAreaDefaultY;
+				
+			}
+		}
+		
+		return index;
+		
+	}
+	
 }

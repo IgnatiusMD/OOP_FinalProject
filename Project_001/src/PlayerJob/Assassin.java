@@ -34,6 +34,8 @@ public class Assassin extends Player{
 		solidArea = new Rectangle();
 		solidArea.x = 8;
 		solidArea.y = 16;
+		solidAreaDefaultX = solidArea.x;
+		solidAreaDefaultY = solidArea.y;
 		solidArea.width = 32;
 		solidArea.height = 32;
 		
@@ -137,6 +139,10 @@ public class Assassin extends Player{
 		collisionOn = false;
 		gp.colChecker.checkTile(this);
 		
+		// CHECK OBJECT COLLISION
+		int objIndex = gp.colChecker.checkObject(this,  true);
+		pickUpObject(objIndex);
+		
 		// EVENT COLLISION HANDLE
 		if(keyH.upPressed == true) {
 			this.direction = "up";
@@ -171,6 +177,17 @@ public class Assassin extends Player{
 		
 		levelup();
 	}
+	
+	public void pickUpObject(int i) {
+		
+		if(i != 99999) {
+			//EVENT HANDLING IF THE PLAYER COLLISION WITH OBJECT
+			gp.obj[i] = null;
+			
+		}
+		
+	}
+	
 	
 	public void draw(Graphics2D g2) {
 		

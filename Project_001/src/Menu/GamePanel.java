@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import controller.*;
+import object.SuperObject;
 import PlayerJob.*;
 import tile.TileManager;
 
@@ -35,7 +36,8 @@ public class GamePanel extends JPanel implements Runnable{
 	TileManager tileM = new TileManager(this);
 	public CollisionChecker colChecker = new CollisionChecker(this);
 	Combat combat;
-	
+	public SuperObject obj[] = new SuperObject[10];
+	public AssetSetter aSetter = new AssetSetter(this);	
 	// WORLD SETTING
 	public final int maxWorldCol = 50;
 	public final int maxWorldRow = 50;
@@ -55,6 +57,10 @@ public class GamePanel extends JPanel implements Runnable{
 		this.addKeyListener(keyH);
 		this.setFocusable(true);
 		
+	}
+	
+	public void setUpGame() {
+		aSetter.setObject();
 	}
 	
 	public void startGameThread() {
@@ -83,11 +89,9 @@ public class GamePanel extends JPanel implements Runnable{
 				update();
 				repaint();
 				if(gl.checkEncounter()) { 
-//					map1.cardLayout.show(map1.panel, "combat");
 					combat.startCombat(playerAssassin, gl.getEnemyFromList());
 				}
 				else {
-//					System.out.println(playerAssassin.getWorldX() + ", " + playerAssassin.getWorldY());
 				}
 				delta--;
 			}
@@ -109,10 +113,20 @@ public class GamePanel extends JPanel implements Runnable{
 		
 		Graphics2D g2 = (Graphics2D)g;
 		
+		// TILE
 		tileM.draw(g2);
+		
+		
+		//OBJECT
+		for(int i = 0; i < obj.length; i++) {
+			if(obj[i] != null) {
+				obj[i].draw(g2, this);
+			}
+		}
+		
+		
+		// PLAYER
 		playerAssassin.draw(g2);
-		
-		
 		g2.dispose();
 		
 	}
