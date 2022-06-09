@@ -87,7 +87,7 @@ public class GamePanel extends JPanel implements Runnable{
 			if(delta >= 1) {
 				update();
 				repaint();
-				System.out.println(playerAssassin.getWorldX() + ", " + playerAssassin.getWorldY());
+//				System.out.println(playerAssassin.getWorldX() + ", " + playerAssassin.getWorldY());
 				delta--;
 			}
 			

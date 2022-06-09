@@ -169,7 +169,11 @@ public class Assassin extends Player{
 	public void pickUpObject(int i) {
 		
 		if(i != 99999) {
+			//EVENT HANDLING IF THE PLAYER COLLISION WITH OBJECT
 			gp.obj[i] = null;
+			
+			
+			
 		}
 		
 	}
