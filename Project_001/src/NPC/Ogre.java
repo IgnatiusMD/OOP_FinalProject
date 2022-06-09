@@ -2,6 +2,7 @@ package NPC;
 
 public class Ogre extends NPC{
 	private Double enragePercent = 0.3;
+	private boolean isEnraged = false;
 	
 	public Ogre() {
 		name = "Forest Ogre";
@@ -13,6 +14,8 @@ public class Ogre extends NPC{
 
 	@Override
 	public Integer attack() {
+		enrage();
+		
 		return attack;
 	}
 
@@ -22,8 +25,12 @@ public class Ogre extends NPC{
 	}
 	
 	public void enrage() {
-		if(hp <= (enragePercent * 2300)) {
+		if(hp <= (enragePercent * 2300) && !isEnraged) {
+			System.out.println("\nWARNING:");
+			System.out.println("You've made the Forest Ogre angry!!!");
+			
 			this.attack += 100;
+			isEnraged = true;
 		}
 	}
 	

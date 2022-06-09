@@ -115,6 +115,6 @@ public abstract class Player {
 	}
 	
 	public void gainEXP() {
-		this.exp += 160;
+		this.exp += 100;
 	}
 }

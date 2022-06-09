@@ -29,6 +29,7 @@ public class Spider extends NPC{
 	
 	public void applyVenom() {
 		if(Math.random() >= (1 - venomChance)) {
+			System.out.println("\nWARNING:");
 			System.out.println("Venom appears to ooze out of its fangs");
 			isVenomous = true;
 		}

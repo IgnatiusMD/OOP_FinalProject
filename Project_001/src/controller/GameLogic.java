@@ -26,42 +26,42 @@ public class GameLogic {
 	}
 	
 	public void addEnemies() {
-//		enemiesList.add(new Goblin());
-//		enemiesList.add(new Goblin());
-//		enemiesList.add(new Spider());
-//		enemiesList.add(new Spider());
-//		enemiesList.add(new Wolf());
-//		enemiesList.add(new Wolf());
-//		enemiesList.add(new Skeleton());
-//		enemiesList.add(new Skeleton());
-//		enemiesList.add(new Imp());
-//		enemiesList.add(new Imp());
+		enemiesList.add(new Goblin());
+		enemiesList.add(new Goblin());
+		enemiesList.add(new Spider());
+		enemiesList.add(new Spider());
+		enemiesList.add(new Wolf());
+		enemiesList.add(new Wolf());
+		enemiesList.add(new Skeleton());
+		enemiesList.add(new Skeleton());
+		enemiesList.add(new Imp());
+		enemiesList.add(new Imp());
 	}
 	
 	public void addEncounterCoordinates() {
 		/*coord Array Content
 		[LowerBoundX, UpperBoundX, LowerBoundY, UpperBoundY, isVisited]*/
 		
-//		Integer[] coord1 = {1092, 1140, 1308, 1356, 0};
-//		Integer[] coord2 = {996, 1044, 1008, 1056, 0};
-//		Integer[] coord3 = {550, 598, 1528, 1576, 0};
-//		Integer[] coord4 = {1100, 1148, 826, 874, 0};
-//		Integer[] coord5 = {1100, 1148, 1876, 1924, 0};
-//		Integer[] coord6 = {1612, 1660, 992, 1040, 0};
-//		Integer[] coord7 = {1816, 1864, 420, 468, 0};
-//		Integer[] coord8 = {1548, 1596, 1920, 1968, 0};
-//		Integer[] coord9 = {1776, 1824, 1756, 1804, 0};
-//		Integer[] coord10 = {477, 525, 412, 460, 0};
-//		enemyCoordinates.add(coord1);
-//		enemyCoordinates.add(coord2);
-//		enemyCoordinates.add(coord3);
-//		enemyCoordinates.add(coord4);
-//		enemyCoordinates.add(coord5);
-//		enemyCoordinates.add(coord6);
-//		enemyCoordinates.add(coord7);
-//		enemyCoordinates.add(coord8);
-//		enemyCoordinates.add(coord9);
-//		enemyCoordinates.add(coord10);
+		Integer[] coord1 = {1076, 1140, 304, 368, 0};
+		Integer[] coord2 = {416, 464, 1540, 1608, 0};
+		Integer[] coord3 = {356, 404, 844, 892, 0};
+		Integer[] coord4 = {940, 1004, 1732, 1800, 0};
+		Integer[] coord5 = {1067, 1136, 1870, 1924, 0};
+		Integer[] coord6 = {1700, 1752, 448, 512, 0};
+		Integer[] coord7 = {1686, 1748, 2035, 2088, 0};
+		Integer[] coord8 = {1696, 1752, 1828, 1884, 0};
+		Integer[] coord9 = {1692, 1756, 936, 984, 0};
+		Integer[] coord10 = {1792, 1856, 320, 364, 0};
+		enemyCoordinates.add(coord1);
+		enemyCoordinates.add(coord2);
+		enemyCoordinates.add(coord3);
+		enemyCoordinates.add(coord4);
+		enemyCoordinates.add(coord5);
+		enemyCoordinates.add(coord6);
+		enemyCoordinates.add(coord7);
+		enemyCoordinates.add(coord8);
+		enemyCoordinates.add(coord9);
+		enemyCoordinates.add(coord10);
 		
 	}
 	
@@ -97,15 +97,6 @@ public class GameLogic {
 				
 				return 1;
 			}
-			//Boss Encounter
-//			else if((plAssassin.getWorldX() >= 1072 
-//					&& plAssassin.getWorldX() <= 1132) 
-//					&& ( plAssassin.getWorldY() >= 420 
-//					&& plAssassin.getWorldY() <= 468)
-//					&& isBossFought.) {
-//				isBossFought = 1;
-//				return 2;
-//			}
 		}
 		areAllEnemiesDefeated();
 		return -1;
@@ -120,8 +111,8 @@ public class GameLogic {
 	}
 	
 	public void teleporttoBoss() {
-		plAssassin.setWorldX(1104);
-		plAssassin.setWorldY(568);
+		plAssassin.setWorldX(484);
+		plAssassin.setWorldY(648);
 		plAssassin.setSpeed(4);
 	}
 	
@@ -131,7 +122,7 @@ public class GameLogic {
 			teleporttoBoss();
 			enemiesList.add(boss);
 			
-			Integer[] bossCoord = {1072, 1132, 420, 468, 0};
+			Integer[] bossCoord = {448, 508, 348, 408, 0};
 			enemyCoordinates.add(bossCoord);
 		}
 	}

@@ -50,7 +50,7 @@ public class Assassin extends Player{
 		agility = 70;
 		intellect = 20;
 		
-		hp = 1200; 
+		hp = 1050; 
 		mp = intellect * 2;
 		attack = agility * 3;
 		defense = 90 + strength;
@@ -121,7 +121,7 @@ public class Assassin extends Player{
 	public void levelup() {
 		if(exp >= 200) {
 			System.out.println("\nYou've leveled up!!!\n");
-			hp += 200;
+			hp += 100;
 			agility += 20;
 			strength += 10;
 			intellect += 5;

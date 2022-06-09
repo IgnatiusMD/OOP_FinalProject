@@ -13,6 +13,7 @@ public class Wolf extends NPC{
 	
 	public Integer attack() {
 		if(criticalHit()) {
+			System.out.println("The wolf lands a critical hit!");
 			return Double.valueOf(attack * 1.5).intValue();
 		}
 		else {

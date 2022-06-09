@@ -22,6 +22,7 @@ public class Skeleton extends NPC{
 	
 	public void reanimate() {
 		if(!isReanimated && (Math.random() >= (1 - reanimChance))) {
+			System.out.println("\nWARNING:");
 			System.out.println("Its bones seem to reconstruct");
 			hp = 500;
 			isReanimated = true;

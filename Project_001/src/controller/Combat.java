@@ -1,6 +1,6 @@
 package controller;
 import PlayerJob.*;
-import NPC.NPC;
+import NPC.*;
 
 import javax.swing.SwingUtilities;
 
@@ -66,21 +66,24 @@ public class Combat {
 					enemyCombatDefMod = enemy.defend();
 				}
 			}
+			else {
+				if(enemy instanceof Skeleton) {
+					((Skeleton) enemy).reanimate();
+				}
+			}
 			System.out.println("\n");
 		}
 		System.out.println("===========================================");
 		if (enemy.getHp() <= 0) {
 			System.out.println("You won the battle\n");
 			player.gainEXP();
-			map1.cardLayout.show(map1.panel, "game");
 			return;
 		}
 		else {
 			System.out.println("You died\n");
 			System.out.println("GAME OVER\n\n");
 			map1.window.dispose();
-//			new Main();
-			new Map1();
+			new Main();
 			return;
 		}
 	}

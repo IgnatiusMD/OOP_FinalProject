@@ -91,9 +91,6 @@ public class GamePanel extends JPanel implements Runnable{
 					combat.startCombat(playerAssassin, gl.getEnemyFromList());
 					gl.popEnemyFromList();
 				}
-//				else if(gl.checkEncounter() == 2) {
-//					combat.startCombat(playerAssassin, gl.boss);
-//				}
 				else {
 //					System.out.println(playerAssassin.getWorldX() +", "+playerAssassin.getWorldY());
 				}
