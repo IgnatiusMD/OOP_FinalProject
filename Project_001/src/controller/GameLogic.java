@@ -14,7 +14,7 @@ public class GameLogic {
 	
 	public Vector <Integer[]> enemyCoordinates = new Vector<>();
 	
-	private boolean isEnemyListEmpty;
+	private boolean isEnemyListEmpty = false;
 	
 	Assassin plAssassin;
 	
@@ -51,6 +51,8 @@ public class GameLogic {
 		Integer[] coord8 = {1694, 1754, 1828, 1884, 0};
 		Integer[] coord9 = {1692, 1758, 936, 984, 0};
 		Integer[] coord10 = {1792, 1858, 320, 364, 0};
+		Integer[] bossCoord = {448, 508, 348, 412, 0};
+		
 		enemyCoordinates.add(coord1);
 		enemyCoordinates.add(coord2);
 		enemyCoordinates.add(coord3);
@@ -61,6 +63,7 @@ public class GameLogic {
 		enemyCoordinates.add(coord8);
 		enemyCoordinates.add(coord9);
 		enemyCoordinates.add(coord10);
+		enemyCoordinates.add(bossCoord);
 		
 	}
 	
@@ -97,7 +100,9 @@ public class GameLogic {
 				return 1;
 			}
 		}
-		areAllEnemiesDefeated();
+		if(!isEnemyListEmpty) {
+			areAllEnemiesDefeated();
+		}
 		return -1;
 	}
 	
@@ -120,9 +125,6 @@ public class GameLogic {
 			isEnemyListEmpty = true;
 			teleporttoBoss();
 			enemiesList.add(boss);
-			
-			Integer[] bossCoord = {448, 508, 348, 412, 0};
-			enemyCoordinates.add(bossCoord);
 		}
 	}
 }

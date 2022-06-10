@@ -6,7 +6,7 @@ public class Goblin extends NPC{
 		name = "Goblin";
 		hp = 850;
 		mp = 200;
-		attack = 320;
+		attack = 300;
 		defense = 100;
 	}
 	
