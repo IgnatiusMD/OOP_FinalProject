@@ -48,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable{
 	int FPS = 60;
 	
 	public GamePanel(Map1 map1) {
-		combat = new Combat(gl, map1);
+		combat = new Combat(map1);
 		this.map1 = map1;
 		this.setPreferredSize(new Dimension(screenWidth, screenHeight));
 		this.setBackground(Color.BLACK);
