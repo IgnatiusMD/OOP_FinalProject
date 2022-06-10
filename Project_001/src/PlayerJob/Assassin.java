@@ -3,12 +3,10 @@ package PlayerJob;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-
 import javax.imageio.ImageIO;
-
 import Menu.GamePanel;
 import Menu.KeyHandler;
-import Menu.Map1;
+
 
 public class Assassin extends Player{
 

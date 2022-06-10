@@ -1,18 +1,16 @@
 package controller;
 import PlayerJob.*;
 import NPC.*;
-import javax.swing.SwingUtilities;
+
 
 import Menu.*;
 
 public class Combat {
 	
 	Double attackChance = 0.7;
-	private GameLogic gl;
 	private Map1 map1;
 	
-	public Combat(GameLogic gl, Map1 map1) {
-		this.gl = gl;
+	public Combat(Map1 map1) {
 		this.map1 = map1;
 	}
 	
