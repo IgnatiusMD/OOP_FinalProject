@@ -109,7 +109,7 @@ public class MainMenu extends JFrame implements ActionListener {
 		this.setVisible(true);
 		this.setSize(new Dimension(screenWidth, screenHeight));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setTitle("Final Tantasy");
+		this.setTitle("Last Tantasy");
 		this.setLocationRelativeTo(null);
 		this.setFocusable(true);
 	}
