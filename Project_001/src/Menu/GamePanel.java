@@ -92,7 +92,7 @@ public class GamePanel extends JPanel implements Runnable{
 					gl.popEnemyFromList();
 				}
 				else {
-//					System.out.println(playerAssassin.getWorldX() +", "+playerAssassin.getWorldY());
+					System.out.println(playerAssassin.getWorldX() +", "+playerAssassin.getWorldY());
 				}
 				delta--;
 			}

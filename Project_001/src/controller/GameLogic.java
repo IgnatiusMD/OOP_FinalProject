@@ -42,15 +42,15 @@ public class GameLogic {
 		[LowerBoundX, UpperBoundX, LowerBoundY, UpperBoundY, isVisited]*/
 		
 		Integer[] coord1 = {1076, 1142, 304, 368, 0};
-		Integer[] coord2 = {416, 464, 1540, 1610, 0};
-		Integer[] coord3 = {356, 406, 844, 896, 0};
+		Integer[] coord2 = {410, 464, 1540, 1610, 0};
+		Integer[] coord3 = {350, 410, 840, 896, 0};
 		Integer[] coord4 = {940, 1008, 1732, 1800, 0};
 		Integer[] coord5 = {1067, 1138, 1870, 1924, 0};
-		Integer[] coord6 = {1700, 1754, 448, 512, 0};
-		Integer[] coord7 = {1686, 1750, 2035, 2088, 0};
-		Integer[] coord8 = {1694, 1754, 1828, 1884, 0};
+		Integer[] coord6 = {1698, 1760, 448, 512, 0};
+		Integer[] coord7 = {1686, 1753, 2035, 2088, 0};
+		Integer[] coord8 = {1694, 1754, 1828, 1904, 0};
 		Integer[] coord9 = {1692, 1758, 936, 984, 0};
-		Integer[] coord10 = {1792, 1858, 320, 364, 0};
+		Integer[] coord10 = {1783, 1858, 320, 364, 0};
 		Integer[] bossCoord = {448, 508, 348, 412, 0};
 		
 		enemyCoordinates.add(coord1);
