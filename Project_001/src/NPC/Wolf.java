@@ -5,7 +5,7 @@ public class Wolf extends NPC{
 	
 	public Wolf() {
 		name = "Wolf";
-		hp = 900;
+		hp = 1100;
 		mp = 150;
 		attack = 350;
 		defense = 100;

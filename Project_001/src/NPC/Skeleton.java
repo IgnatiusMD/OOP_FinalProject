@@ -6,9 +6,9 @@ public class Skeleton extends NPC{
 	
 	public Skeleton() {
 		name = "Skeleton";
-		hp = 700;
+		hp = 900;
 		mp = 100;
-		attack = 250;
+		attack = 450;
 		defense = 70;
 	}
 	

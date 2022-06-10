@@ -7,7 +7,7 @@ public class Spider extends NPC{
 	
 	public Spider() {
 		name = "Giant Spider";
-		hp = 1000;
+		hp = 1050;
 		mp = 240;
 		attack = 300;
 		defense = 100;
@@ -36,6 +36,6 @@ public class Spider extends NPC{
 	}
 	
 	public Integer defend() {
-		return 50;
+		return 100;
 	}
 }

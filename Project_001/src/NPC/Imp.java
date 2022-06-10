@@ -5,7 +5,7 @@ public class Imp extends NPC{
 	
 	public Imp() {
 		name = "Imp";
-		hp = 1000;
+		hp = 1200;
 		mp = 300;
 		attack = 350;
 		defense = 100;
@@ -28,7 +28,7 @@ public class Imp extends NPC{
 	public Integer hellfire() {
 		System.out.println("Hellfire reigns from the sky");
 		mp -= 50;
-		return 450;
+		return 650;
 	}
 	
 	public Integer defend() {

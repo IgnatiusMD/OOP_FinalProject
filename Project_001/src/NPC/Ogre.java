@@ -6,7 +6,7 @@ public class Ogre extends NPC{
 	
 	public Ogre() {
 		name = "Forest Ogre";
-		hp = 2300;
+		hp = 1600;
 		mp = 300;
 		attack = 450;
 		defense = 200;
@@ -21,7 +21,7 @@ public class Ogre extends NPC{
 
 	@Override
 	public Integer defend() {
-		return 100;
+		return 120;
 	}
 	
 	public void enrage() {
@@ -29,7 +29,7 @@ public class Ogre extends NPC{
 			System.out.println("\nWARNING:");
 			System.out.println("You've made the Forest Ogre angry!!!");
 			
-			this.attack += 100;
+			this.attack += 150;
 			isEnraged = true;
 		}
 	}

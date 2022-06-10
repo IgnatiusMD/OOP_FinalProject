@@ -20,6 +20,7 @@ public class Combat {
 	public void startCombat(Player player, NPC enemy) {
 		System.out.println("===========================================");
 		System.out.println("You've encountered an enemy!");
+		System.out.println(enemy.getClass());
 		
 		//Temporary health of player, so that it resets each encounter
 		Integer playerCombatHP = player.getHp();
