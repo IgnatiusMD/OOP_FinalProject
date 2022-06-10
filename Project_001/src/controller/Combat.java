@@ -1,7 +1,6 @@
 package controller;
 import PlayerJob.*;
 import NPC.*;
-
 import javax.swing.SwingUtilities;
 
 import Menu.*;
@@ -20,7 +19,6 @@ public class Combat {
 	public void startCombat(Player player, NPC enemy) {
 		System.out.println("===========================================");
 		System.out.println("You've encountered an enemy!");
-		System.out.println(enemy.getClass());
 		
 		//Temporary health of player, so that it resets each encounter
 		Integer playerCombatHP = player.getHp();
@@ -78,6 +76,15 @@ public class Combat {
 		if (enemy.getHp() <= 0) {
 			System.out.println("You won the battle\n");
 			player.gainEXP();
+			
+			if(enemy instanceof Ogre) {
+				System.out.println("\nYou defeated the terrorizing ogre!!");
+				System.out.println("Thanks for playing\n");
+				
+				map1.window.dispose();
+				new CreditPage();
+			}
+			
 			return;
 		}
 		else {
